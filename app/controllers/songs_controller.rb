@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   def home
+    @songs = Song.all
   end
 
   def new

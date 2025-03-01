@@ -4,6 +4,33 @@
   <p><i class="fa-solid fa-arrow-down"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down"></i></p>
 
   <div class="buttons">
-    <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary" %>
+    <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary my-4" %>
   </div>
+</div>
+
+<div class="container">
+  <h3>How does it work?</h3>
+  <div class="instructions-body">
+    <p>Click 'gimme a song!' to generate a new songwriting challenge</p>
+    <p>You can choose to randomise specific things, like just the time signature</p>
+    <p>When you are happy with your selection, click done! You can also name it when you save:</p>
+  </div>
+</div>
+
+<div class="container">
+  <% @songs.each do |song| %>
+    <div class="card my-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Sad song in 7/8</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Created on: <%= song.created_at %></h6>
+        <div class="song-elements d-flex justify-content-around align-items-center border">
+          <p class="card-text"><%= song.time_signature %></p>
+          <p class="card-text"><%= song.instrument %></p>
+          <p class="card-text"><%= song.mood %></p>
+          <p class="card-text"><%= song.bpm %></p>
+          <p class="card-text"><%= song.key %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
