@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_26_073948) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_02_095956) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "song_instruments", force: :cascade do |t|
+    t.bigint "song_id", null: false
+    t.bigint "instrument_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["instrument_id"], name: "index_song_instruments_on_instrument_id"
+    t.index ["song_id"], name: "index_song_instruments_on_song_id"
+  end
+
   create_table "songs", force: :cascade do |t|
-    t.string "instrument"
     t.string "mood"
     t.string "key"
     t.integer "bpm"
@@ -24,4 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_26_073948) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "song_instruments", "instruments"
+  add_foreign_key "song_instruments", "songs"
 end

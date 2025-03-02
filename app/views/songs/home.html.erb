@@ -17,19 +17,18 @@
   </div>
 </div>
 
-<div class="container">
-  <% @songs.each do |song| %>
+<div class="container d-flex flex-row justify-content-around">
+  <% @song_instruments.each do |song| %>
     <div class="card my-3" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">Sad song in 7/8</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Created on: <%= song.created_at %></h6>
+        <h5 class="card-title"><%= %></h5>
         <div class="song-elements d-flex justify-content-around align-items-center border">
-          <p class="card-text"><%= song.time_signature %></p>
-          <p class="card-text"><%= song.instrument %></p>
-          <p class="card-text"><%= song.mood %></p>
-          <p class="card-text"><%= song.bpm %></p>
-          <p class="card-text"><%= song.key %></p>
+          <p class="card-text"><%= song.song.time_signature %></p>
+          <p class="card-text"><%= song.song.mood %></p>
+          <p class="card-text"><%= song.song.key %></p>
+          <p class="card-text"><%= song.song.bpm %></p>
         </div>
+        <h6 class="card-subtitle mb-2 text-muted">Created on: <%= %></h6>
       </div>
     </div>
   <% end %>
