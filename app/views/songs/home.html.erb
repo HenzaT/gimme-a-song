@@ -18,17 +18,29 @@
 </div>
 
 <div class="container d-flex flex-row justify-content-around">
-  <% @song_instruments.each do |song| %>
-    <div class="card my-3" style="width: 18rem;">
+  <% @songs.each do |song| %>
+    <div class="card m-3" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title"><%= %></h5>
-        <div class="song-elements d-flex justify-content-around align-items-center border">
-          <p class="card-text"><%= song.song.time_signature %></p>
-          <p class="card-text"><%= song.song.mood %></p>
-          <p class="card-text"><%= song.song.key %></p>
-          <p class="card-text"><%= song.song.bpm %></p>
+        <h5 class="card-title">
+          '<%= song.SongInstruments[0].name %>'
+        </h5>
+        <div class="instruments my-2 border">
+          <p>
+            <strong>Instruments to use: </strong>
+            <% song.instruments.each do |instrument| %>
+              <ul>
+                <li><%= instrument.name %></li>
+              </ul>
+            <% end %>
+          </p>
         </div>
-        <h6 class="card-subtitle mb-2 text-muted">Created on: <%= %></h6>
+        <div class="song-elements my-2 border">
+          <p class="card-text"><strong>time signature: </strong><%= song.time_signature %></p>
+          <p class="card-text"><strong>mood: </strong><%= song.mood %></p>
+          <p class="card-text"><strong>key: </strong><%= song.key %></p>
+          <p class="card-text"><strong>BPM: </strong><%= song.bpm %></p>
+        </div>
+        <h6 class="card-subtitle mb-2 text-muted">Created on: <%=  %></h6>
       </div>
     </div>
   <% end %>

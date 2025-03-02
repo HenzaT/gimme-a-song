@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   def home
     @songs = Song.all
     @instruments = Instrument.all
-    @song_instruments = SongInstrument.select(:song_id).group(:song_id)
+    @grouped_by_song_id = SongInstrument.select(:song_id).group(:song_id)
   end
 
   def new
