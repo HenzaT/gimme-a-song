@@ -1,8 +1,8 @@
 class SongsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[home new]
+
   def home
-    @songs = Song.all
-    @instruments = Instrument.all
-    @grouped_by_song_id = SongInstrument.select(:song_id).group(:song_id)
+    @songs = Song.limit(4)
   end
 
   def new
