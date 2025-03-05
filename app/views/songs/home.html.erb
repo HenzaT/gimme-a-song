@@ -1,47 +1,61 @@
 <div class="container">
-  <h1>Gimme A Song!</h1>
-  <p>Feeling stuck? Don't know what kind of song to write?</p>
-  <p><i class="fa-solid fa-arrow-down"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down"></i></p>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="container my-2">
+        <h1>Gimme A Song!</h1>
+        <p>Feeling stuck? Don't know what kind of song to write?</p>
+        <p><i class="fa-solid fa-arrow-down"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down"></i></p>
 
-  <div class="buttons">
-    <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary my-4" %>
+        <div class="button text-center">
+          <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary my-4" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="container d-flex flex-row justify-content-around">
+        <% @songs.each do |song| %>
+          <div class="card m-3 border-3 border-info" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">
+                '<%= song.SongInstruments[0].name %>'
+              </h5>
+              <div class="card-subtitle my-2 text-muted">
+                <h6>created on:</h6>
+                <h6><%= song.SongInstruments[0].created_at.strftime('%A %e %B, %Y') %></h6>
+              </div>
+              <div class="d-flex">
+                <div class="instruments my-2 border">
+                  <p>
+                    <strong>Instruments to use: </strong>
+                    <% song.instruments.each do |instrument| %>
+                      <ul>
+                        <li><%= instrument.name %></li>
+                      </ul>
+                    <% end %>
+                  </p>
+                </div>
+                <div class="song-elements my-2 border">
+                  <p class="card-text"><strong>time signature: </strong><%= song.time_signature %></p>
+                  <p class="card-text"><strong>mood: </strong><%= song.mood %></p>
+                  <p class="card-text"><strong>key: </strong><%= song.key %></p>
+                  <p class="card-text"><strong>BPM: </strong><%= song.bpm %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="container">
   <h3>How does it work?</h3>
   <div class="instructions-body">
-    <p>Click 'gimme a song!' to generate a new songwriting challenge</p>
-    <p>You can choose to randomise specific things, like just the time signature</p>
-    <p>When you are happy with your selection, click done! You can also name it when you save:</p>
+    <ol>
+      <li><p>Click 'Gimme a Song!' to generate a new songwriting challenge</p></li>
+      <li><p>If you want to change something specfic, like just the time signature, you can!</p></li>
+      <li><p>When you are happy with your selection, click 'Done'. You can also name it when you save</p></li>
+    </ol>
   </div>
-</div>
-
-<div class="container d-flex flex-row justify-content-around">
-  <% @songs.each do |song| %>
-    <div class="card m-3" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">
-          '<%= song.SongInstruments[0].name %>'
-        </h5>
-        <div class="instruments my-2 border">
-          <p>
-            <strong>Instruments to use: </strong>
-            <% song.instruments.each do |instrument| %>
-              <ul>
-                <li><%= instrument.name %></li>
-              </ul>
-            <% end %>
-          </p>
-        </div>
-        <div class="song-elements my-2 border">
-          <p class="card-text"><strong>time signature: </strong><%= song.time_signature %></p>
-          <p class="card-text"><strong>mood: </strong><%= song.mood %></p>
-          <p class="card-text"><strong>key: </strong><%= song.key %></p>
-          <p class="card-text"><strong>BPM: </strong><%= song.bpm %></p>
-        </div>
-        <h6 class="card-subtitle mb-2 text-muted">Created on: <%= song.SongInstruments[0].created_at.strftime('%A %e %B, %Y') %></h6>
-      </div>
-    </div>
-  <% end %>
 </div>

@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home new]
 
   def home
-    @songs = Song.limit(4)
+    @songs = Song.limit(3)
   end
 
   def new
@@ -12,5 +12,19 @@ class SongsController < ApplicationController
     @song.mood = %w[sad happy energetic slow fast silly sombre complex].sample(1).join
     @instrument = Instrument.new
     @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
+  end
+
+  def create
+    @song = Song.new
+    @song.save!
+  end
+
+  def my_songs
+  end
+
+  private
+
+  def songs_params
+    params.require(:song).permit(:time_signature, :bpm, :mood)
   end
 end
