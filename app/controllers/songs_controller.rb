@@ -15,8 +15,8 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new
-    @song.save!
+    Song.create(mood: params[:mood], bpm: params[:bpm], key: params[:key], time_signature: params[:time_signature])
+    redirect_to my_songs_path
   end
 
   def my_songs

@@ -10,5 +10,5 @@
 
 <div class="container d-flex">
   <%= button_to 'Gimme a Song!', new_song_path, method: :get  %>
-  <%= button_to 'Done', new_song_path, data: { turbo_method: :post } %>
+  <%= button_to 'Done', songs_path(bpm: @song.bpm, mood: @song.mood, key: @song.key, time_signature: @song.time_signature) %>
 </div>
