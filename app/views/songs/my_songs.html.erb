@@ -1,3 +1,40 @@
 <div class="container">
-  <h1>Here are your saved songwriting ideas</h1>
+  <div class="text-center my-3">
+    <h3><i>Here are your saved songwriting ideas, </i></h3><h1><%= current_user.first_name %></h1>
+  </div>
+
+
+  <div class="d-flex justify-content-center flex-wrap">
+    <% current_user.UserIdeas.each do |idea| %>
+      <div class="card m-3 border-3 border-info" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            '<%= idea.song %>'
+          </h5>
+          <div class="card-subtitle my-2 text-muted">
+            <h6>created on:</h6>
+            <h6><%= idea.song.created_at.strftime('%A %e %B, %Y') %></h6>
+          </div>
+          <div class="d-flex">
+            <div class="instruments my-2 border">
+              <p>
+                <strong>Instruments to use: </strong>
+                <% idea.song.instruments.each do |instrument| %>
+                  <ul>
+                    <li><%= instrument.name %></li>
+                  </ul>
+                <% end %>
+              </p>
+            </div>
+            <div class="song-elements my-2 border">
+              <p class="card-text"><strong>time signature: </strong><%= idea.song.time_signature %></p>
+              <p class="card-text"><strong>mood: </strong><%= idea.song.mood %></p>
+              <p class="card-text"><strong>key: </strong><%= idea.song.key %></p>
+              <p class="card-text"><strong>BPM: </strong><%= idea.song.bpm %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

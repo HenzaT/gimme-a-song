@@ -2,18 +2,18 @@
   <div class="row">
     <div class="col-md-3">
       <div class="container my-2">
-        <h1>Gimme A Song!</h1>
+        <h1>Gimme a Song!</h1>
         <p>Feeling stuck? Don't know what kind of song to write?</p>
         <p><i class="fa-solid fa-arrow-down"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down"></i></p>
 
         <div class="button text-center">
-          <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary my-4" %>
+          <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary btn-lg my-4" %>
         </div>
       </div>
     </div>
     <div class="col-md-9">
       <div class="container d-flex flex-row justify-content-around">
-        <% @songs.each do |song| %>
+        <% @two_songs.each do |song| %>
           <div class="card m-3 border-3 border-info" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title text-center">

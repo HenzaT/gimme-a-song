@@ -10,6 +10,7 @@
 
 puts "cleaning database..."
 SongInstrument.destroy_all
+UserIdea.destroy_all
 Song.destroy_all
 Instrument.destroy_all
 
