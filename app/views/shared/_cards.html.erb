@@ -1,6 +1,9 @@
-<div class="card">
-  <div class="card-body" data-turbo-frame="time">
-    <h5 class="card-title text-center"><strong>Time Signature</strong></h5>
+<div class="card rounded-5">
+  <div class="card-body text-center" data-turbo-frame="time">
+    <div>
+      <h5 class="card-title text-center"><strong>Time Signature</strong></h5>
+      <i class="fa-solid fa-lock-open"></i>
+    </div>
     <p class="card-text">The time signature is:</p>
     <h2 class="text-center"><%= @song.time_signature %></h2>
     <div class="text-center">
@@ -10,9 +13,12 @@
 </div>
 
   <div data-controller="expander">
-    <div class="card active">
+    <div class="card rounded-5 active">
       <div class="card-body text-center">
+      <div>
         <h5 class="card-title"><strong>Instrument</strong></h5>
+        <i class="fa-solid fa-lock-open"></i>
+      </div>
         <p class="card-text">Your instrument is: </p>
         <h2 class="text-center"><%= @instrument.name %></h2>
         <div class="text-center">
@@ -22,9 +28,12 @@
       </div>
     </div>
 
-    <div data-expander-target="expandingElement" class="card d-none">
+    <div data-expander-target="expandingElement" class="card rounded-5 d-none">
       <div class="card-body text-center">
+      <div>
         <h5 class="card-title"><strong>Instrument</strong></h5>
+        <i class="fa-solid fa-lock-open"></i>
+      </div>
         <p class="card-text">Your instrument is: </p>
         <h2 class="text-center"><%= @instrument.name %></h2>
         <div class="text-center">
@@ -34,9 +43,12 @@
       </div>
     </div>
 
-    <div class="card d-none">
+    <div class="card rounded-5 d-none">
       <div class="card-body text-center">
-        <h5 class="card-title"><strong>Instrument</strong></h5>
+        <div>
+          <h5 class="card-title"><strong>Instrument</strong></h5>
+          <i class="fa-solid fa-lock-open"></i>
+        </div>
         <p class="card-text">Your instrument is: </p>
         <h2 class="text-center"><%= @instrument.name %></h2>
         <div class="text-center">
@@ -46,9 +58,12 @@
       </div>
     </div>
 
-    <div class="card d-none">
+    <div class="card rounded-5 d-none">
       <div class="card-body text-center">
-        <h5 class="card-title"><strong>Instrument</strong></h5>
+        <div>
+          <h5 class="card-title"><strong>Instrument</strong></h5>
+          <i class="fa-solid fa-lock-open"></i>
+        </div>
         <p class="card-text">Your instrument is: </p>
         <h2 class="text-center"><%= @instrument.name %></h2>
         <div class="text-center">
@@ -59,31 +74,38 @@
     </div>
   </div>
 
-<div class="card">
+<div class="card rounded-5"
+      data-controller="randomBpm">
   <div class="card-body text-center">
-    <h5 class="card-title"><strong>BPM</strong></h5>
+    <div>
+      <h5 class="card-title"><strong>BPM</strong></h5>
+      <i class="fa-solid fa-lock-open"></i>
+    </div>
     <p class="card-text">The BPM is: </p>
-    <h2 class="text-center"><%= @song.bpm %></h2>
-    <div class="text-center">
-      <a href="#" class="btn btn-info">something else</a>
-    </div>
+    <h2 data-randomBpm-target="bpm">120</h2>
+    <button class="btn btn-info" data-action="click->randomBpm#changeBpm">something else</button>
   </div>
 </div>
 
-<div class="card">
+<div class="card rounded-5"
+      data-controller="randomMood">
   <div class="card-body text-center">
-    <h5 class="card-title"><strong>Mood</strong></h5>
+    <div>
+      <h5 class="card-title"><strong>Mood</strong></h5>
+      <i class="fa-solid fa-lock-open"></i>
+    </div>
     <p class="card-text">The mood is: </p>
-    <h2 class="text-center"><%= @song.mood %></h2>
-    <div class="text-center">
-      <a href="#" class="btn btn-info">something else</a>
-    </div>
+    <h2 data-randomMood-target="mood">happy</h2>
+    <button class="btn btn-info" data-action="click->randomMood#changeMood">something else</button>
   </div>
 </div>
 
-<div class="card">
+<div class="card rounded-5">
   <div class="card-body text-center">
-    <h5 class="card-title"><strong>Key</strong></h5>
+    <div>
+      <h5 class="card-title"><strong>Key</strong></h5>
+      <i class="fa-solid fa-lock-open"></i>
+    </div>
     <p class="card-text">The key is: </p>
     <h2 class="text-center">placeholder</h2>
     <div class="text-center">

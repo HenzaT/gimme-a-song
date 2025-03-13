@@ -1,0 +1,19 @@
+<h1><%= @song.bpm %></h1>
+
+<div class="card">
+  <div class="card-body text-center">
+    <div>
+      <h5 class="card-title"><strong>BPM</strong></h5>
+      <i class="fa-solid fa-lock-open"></i>
+    </div>
+    <p class="card-text">The BPM is: </p>
+    <h2 class="text-center"><%= @song.bpm %></h2>
+    <div class="text-center">
+      <a href="#" class="btn btn-info">something else</a>
+    </div>
+  </div>
+</div>
+
+<div class="me-4">
+  <%= button_to 'Gimme a Song!', new_song_path, method: :get %>
+</div>

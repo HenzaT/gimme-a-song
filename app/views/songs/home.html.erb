@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="container my-2">
+      <div class="container my-2 text-center">
         <h1>Gimme a Song!</h1>
         <p>Feeling stuck? Don't know what kind of song to write?</p>
         <p><i class="fa-solid fa-arrow-down"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down"></i></p>
@@ -14,7 +14,7 @@
     <div class="col-md-9">
       <div class="container d-flex flex-row justify-content-around">
         <% @two_songs.each do |song| %>
-          <div class="card m-3 border-3 border-info" style="width: 18rem;">
+          <div class="card m-3 border-3 border-info rounded-5" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title text-center">
                 '<%= song.SongInstruments[0].name %>'
