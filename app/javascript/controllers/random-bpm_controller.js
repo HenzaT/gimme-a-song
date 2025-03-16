@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="randomBpm"
 export default class extends Controller {
-  static targets = ["bpm"]
+  static targets = ["bpm"];
 
   getRandomBpm() {
     let min = 60;
@@ -13,6 +13,6 @@ export default class extends Controller {
   }
 
   changeBpm() {
-    this.bpmTarget.textContent = this.getRandomBpm();
+    this.bpmTarget.innerText = this.getRandomBpm();
   }
 }

@@ -7,9 +7,6 @@ class Song < ApplicationRecord
   has_many :users, through: :UserIdeas
   validates :time_signature, presence: true
   validates :time_signature, inclusion: { in: %w[4/4 3/4 5/4 6/8 7/8 9/8 6/4] }
-
-  private
-
   # def assign_random_bpm
   #   self.bpm = rand(60..190)
   # end

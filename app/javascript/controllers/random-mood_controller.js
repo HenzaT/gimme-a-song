@@ -4,10 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["mood"];
 
-  connect() {
-    console.log("hello from random mood");
-  }
-
   getRandomMood() {
     const moods = ["sad", "happy", "energetic", "slow", "fast", "silly", "sombre", "complex"];
     return moods[Math.floor(Math.random() * moods.length)];
@@ -15,6 +11,6 @@ export default class extends Controller {
 
   changeMood() {
     const newMood = this.getRandomMood();
-    this.moodTarget.textContent = newMood;
+    this.moodTarget.innerText = newMood;
   }
 }
