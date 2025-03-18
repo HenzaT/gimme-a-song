@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="random-instrument"
-export default class RandomInstrumentController extends Controller {
+export default class extends Controller {
   static targets = ["instrument"];
 
   randomInstrument() {

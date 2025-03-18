@@ -34,6 +34,10 @@ class SongsController < ApplicationController
     redirect_to my_songs_path
   end
 
+  def new_instrument
+    @instrument = Instrument.new
+  end
+
   def edit
     @song = Song.find(params[:id])
   end
