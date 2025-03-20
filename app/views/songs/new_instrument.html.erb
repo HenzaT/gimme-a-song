@@ -33,32 +33,35 @@
         </div>
       </div>
 
-      <div class="card rounded-5 d-none" style="width: 18rem;">
+      <div class="card rounded-5 d-none" style="width: 18rem;" data-expander-target="expandingElement" data-controller="random-instrument">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>Instrument</strong></h5>
             <i class="fa-solid fa-lock-open"></i>
           </div>
           <p class="card-text">Your instrument is: </p>
-          <h2 class="text-center">drums</h2>
+          <h2 data-random-instrument-target="instrument"
+              data-song-target="allInstrument">drums</h2>
           <div class="text-center">
-            <a href="#" class="btn btn-info">something else</a>
-            <button class="btn btn-success mt-3">+</button>
+            <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
+            <button data-action="click->expander#fire" class="btn btn-success mt-3">+</button>
           </div>
         </div>
       </div>
 
-      <div class="card rounded-5 d-none" style="width: 18rem;">
+      <div class="card rounded-5 d-none" style="width: 18rem;" data-expander-target="expandingElement" data-controller="random-instrument">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>Instrument</strong></h5>
             <i class="fa-solid fa-lock-open"></i>
           </div>
           <p class="card-text">Your instrument is: </p>
-          <h2 class="text-center">vocals</h2>
+          <h2 data-random-instrument-target="instrument"
+              data-song-target="allInstrument">vocals</h2>
           <div class="text-center">
-            <a href="#" class="btn btn-info">something else</a>
-            <button class="btn btn-success mt-3">+</button>
+            <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
+            <button data-action="click->expander#fire" class="btn btn-success mt-3">+</button>
+          </div>
           </div>
         </div>
       </div>

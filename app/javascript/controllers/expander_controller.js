@@ -9,6 +9,9 @@ export default class extends Controller {
   }
 
   fire() {
-    this.expandingElementTarget.classList.remove("d-none");
+    this.expandingElementTargets.forEach(expand => {
+      expand.classList.remove("d-none");
+    });
+
   }
 }

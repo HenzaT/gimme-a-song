@@ -38,6 +38,8 @@ export default class extends Controller {
     this.allKeyTarget.innerText = this.getRandomKey();
     this.allBpmTarget.innerText = this.getRandomBpm();
     this.allMoodTarget.innerText = this.getRandomMood();
-    this.allInstrumentTarget.innerText = this.randomInstrument();
+    this.allInstrumentTargets.forEach(instrument => {
+      instrument.innerText = this.randomInstrument();
+    });
   }
 }
