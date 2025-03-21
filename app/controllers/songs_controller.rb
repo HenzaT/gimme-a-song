@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home new]
+  skip_before_action :authenticate_user!, only: %i[home new new_instrument]
 
   def home
     @two_songs = Song.limit(2)
