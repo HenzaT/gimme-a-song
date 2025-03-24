@@ -6,32 +6,23 @@ class SongsController < ApplicationController
   end
 
   def new
-    @songinstrument = SongInstrument.new
+    @song_instrument = SongInstrument.new
     @song = Song.new
-    # @song.time_signature = %w[4/4 3/4 5/4 6/8 6/4 7/8 9/8].sample(1).join
-    # @song.bpm = rand(60..190)
-    # @song.mood = %w[sad happy energetic slow fast silly sombre complex].sample(1).join
-    # @instrument = Instrument.new
-    # @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
+    @instrument = Instrument.new
   end
 
   def create
-    current_song = Song.new(mood: params[:mood], bpm: params[:bpm], key: params[:key], time_signature: params[:time_signature])
-    current_song.save
-
-    current_id = current_user.id
-    current_idea = UserIdea.create(user_id: current_id, song_id: current_song.id)
-
-    current_instrument = Instrument.new(name: params[:name])
-    current_instrument.save!
-
-    SongInstrument.create(song_id: current_song.id, instrument_id: current_instrument.id)
-
-    # current_instrument = Instrument.create(name: params[:name])
-    # @idea = UserIdea.new(user_id: current_user.id, song_id: current_song.id)
-    # @idea.save
-    # SongInstrument.create(name: "test", song_id: current_song.id, instrument_id: current_instrument.id)
-    redirect_to my_songs_path
+    @song = Song.new(song_params)
+    @instrument = Instrument.new(instrument_params)
+    if @song.save && @instrument.save
+      @song_instrument = SongInstrument.create!(song_id: @song.id, instrument_id: @instrument.id)
+      @user_idea = UserIdea.create!(user_id: current_user.id, song_id: @song.id)
+      redirect_to my_songs_path, notice: "Song successfully saved!"
+      return
+      # render json: @song, status: :created
+    else
+      render json: { error: "Failed to save song" }, status: :unprocessable_entity
+    end
   end
 
   def new_instrument
@@ -53,7 +44,11 @@ class SongsController < ApplicationController
 
   private
 
-  def songs_params
-    params.require(:song).permit(:time_signature, :bpm, :mood)
+  def song_params
+    params.require(:song).permit(:time_signature, :bpm, :mood, :key)
+  end
+
+  def instrument_params
+    params.require(:instrument).permit(:name)
   end
 end

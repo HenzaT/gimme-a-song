@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+      html * {
+        font-family: "Barlow", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        font-style: normal;
+      }
+    </style>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="background-color: #F5F5F5;">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
