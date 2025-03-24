@@ -4,4 +4,7 @@ class SongInstrumentsController < ApplicationController
     @song = Song.new
     @instrument = Instrument.new
   end
+
+  def create
+  end
 end
