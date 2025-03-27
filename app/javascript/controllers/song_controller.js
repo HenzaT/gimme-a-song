@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="song"
 export default class extends Controller {
-  static targets = ["allTime", "allKey", "allBpm", "allMood", "allInstrument"];
+  static targets = [ "allTime", "allKey", "allBpm", "allMood", "allInstrumentOne", "allInstrumentTwo", "allInstrumentThree", "allInstrumentFour" ];
 
   connect() {
     this.generatedData = {};
@@ -22,18 +22,27 @@ export default class extends Controller {
     const randomKey = keys[Math.floor(Math.random() * keys.length)];
     const randomMood = moods[Math.floor(Math.random() * moods.length)];
     const randomBpm = Math.floor(Math.random() * (max - min + 1));
-    const randomInstrument = instruments[Math.floor(Math.random() * instruments.length)];
+    const randomInstrumentOne = instruments[Math.floor(Math.random() * instruments.length)];
+    const randomInstrumentTwo = instruments[Math.floor(Math.random() * instruments.length)];
+    const randomInstrumentThree = instruments[Math.floor(Math.random() * instruments.length)];
+    const randomInstrumentFour = instruments[Math.floor(Math.random() * instruments.length)];
 
     this.allTimeTarget.innerText = randomTime;
     this.allBpmTarget.innerText = randomBpm
     this.allKeyTarget.innerText = randomKey;
     this.allMoodTarget.innerText = randomMood;
-    this.allInstrumentTargets.forEach(instrument => {
-      instrument.innerText = randomInstrument;
-    });
+
+    this.allInstrumentOneTarget.innerText = randomInstrumentOne;
+    this.allInstrumentTwoTarget.innerText = randomInstrumentTwo;
+    this.allInstrumentThreeTarget.innerText = randomInstrumentThree;
+    this.allInstrumentFourTarget.innerText = randomInstrumentFour;
+
+    // this.allInstrumentTargets.forEach(instrument => {
+    //   instrument.innerText = randomInstrument;
+    // });
 
     this.generatedData = { time_signature: randomTime, key: randomKey, mood: randomMood, bpm: randomBpm };
-    this.generatedInstrument = { name: randomInstrument }
+    this.generatedInstrument = { name: randomInstrumentOne }
   }
 
   saveSong() {

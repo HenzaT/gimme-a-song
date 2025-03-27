@@ -3,7 +3,7 @@
 <div class="new-body container" data-controller="song">
   <div class="row" data-controller="random-time-sig">
     <div class="cards col my-4">
-      <div class="card my-2" style="width: 18rem;" data-random-time-sig-target="timeSigCard">
+      <div class="card my-4" style="width: 18rem;" data-random-time-sig-target="timeSigCard">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title text-center"><strong>Time Signature</strong></h5>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="card my-2" style="width: 18rem;"
+      <div class="card my-4" style="width: 18rem;"
             data-controller="random-bpm">
         <div class="card-body text-center">
           <div>
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div class="card my-2" style="width: 18rem;"
+      <div class="card my-4" style="width: 18rem;"
             data-controller="random-mood">
         <div class="card-body text-center">
           <div>
@@ -41,7 +41,7 @@
         </div>
       </div>
 
-      <div class="card my-2" style="width: 18rem;">
+      <div class="card my-4" style="width: 18rem;">
         <div class="card-body text-center"
               data-controller="random-key">
           <div>
@@ -59,7 +59,10 @@
       <div class="container d-flex justify-content-center my-4">
         <button class="btn btn-primary me-4" data-action="click->song#changeAll">Gimme a Song!</button>
         <button class="btn btn-success me-4" data-action="click->song#saveSong">Done</button>
-        <%#= render "shared/name_form" %>
+        <%#= simple_form_for [@song, @song_instrument] do |f| %>
+          <%#= f.input :mood %>
+          <%#= f.submit %>
+        <%# end %>
       </div>
     </div>
 

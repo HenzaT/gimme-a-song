@@ -1,4 +1,9 @@
 .card {
   background-color: #C5D5CF;
   border: 2px solid;
+  box-shadow: 10px 10px 5px #727272;
+}
+
+.card:hover {
+  transform: skewY(5deg);
 }

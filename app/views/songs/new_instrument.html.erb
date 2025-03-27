@@ -1,7 +1,7 @@
 <div class="new-instrument-body">
   <%= turbo_frame_tag :new_instrument do %>
     <div class="cards container my-4" data-controller="expander">
-      <div class="card active" style="width: 18rem;" data-controller="random-instrument">
+      <div class="card my-4 active" style="width: 18rem;" data-controller="random-instrument">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>Instrument</strong></h5>
@@ -9,15 +9,15 @@
           </div>
           <p class="card-text">Your instrument is: </p>
           <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrument">guitar</h2>
+              data-song-target="allInstrumentOne">guitar</h2>
           <div class="text-center">
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-            <button data-action="click->expander#fire" class="btn btn-success mt-3">+</button>
+            <button data-action="click->expander#fireOne" class="btn btn-success mt-3">+</button>
           </div>
         </div>
       </div>
 
-      <div class="card d-none" style="width: 18rem;" data-expander-target="expandingElement" data-controller="random-instrument">
+      <div class="card my-4 d-none" style="width: 18rem;" data-expander-target="expandingElementOne" data-controller="random-instrument">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>Instrument</strong></h5>
@@ -25,15 +25,15 @@
           </div>
           <p class="card-text">Your instrument is: </p>
           <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrument">bass</h2>
+              data-song-target="allInstrumentTwo">bass</h2>
           <div class="text-center">
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-            <button data-action="click->expander#fire" class="btn btn-success mt-3">+</button>
+            <button data-action="click->expander#fireTwo" class="btn btn-success mt-3">+</button>
           </div>
         </div>
       </div>
 
-      <div class="card d-none" style="width: 18rem;" data-expander-target="expandingElement" data-controller="random-instrument">
+      <div class="card my-4 d-none" style="width: 18rem;" data-expander-target="expandingElementTwo" data-controller="random-instrument">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>Instrument</strong></h5>
@@ -41,15 +41,15 @@
           </div>
           <p class="card-text">Your instrument is: </p>
           <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrument">drums</h2>
+              data-song-target="allInstrumentThree">drums</h2>
           <div class="text-center">
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-            <button data-action="click->expander#fire" class="btn btn-success mt-3">+</button>
+            <button data-action="click->expander#fireThree" class="btn btn-success mt-3">+</button>
           </div>
         </div>
       </div>
 
-      <div class="card d-none" style="width: 18rem;" data-expander-target="expandingElement" data-controller="random-instrument">
+      <div class="card my-4 d-none" style="width: 18rem;" data-expander-target="expandingElementThree" data-controller="random-instrument">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>Instrument</strong></h5>
@@ -57,10 +57,9 @@
           </div>
           <p class="card-text">Your instrument is: </p>
           <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrument">vocals</h2>
+              data-song-target="allInstrumentFour">vocals</h2>
           <div class="text-center">
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-            <button data-action="click->expander#fire" class="btn btn-success mt-3">+</button>
           </div>
           </div>
         </div>

@@ -2,16 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="expander"
 export default class extends Controller {
-  static targets = ["expandingElement"]
+  static targets = [ "expandingElementOne", "expandingElementTwo", "expandingElementThree" ]
 
-  connect() {
-    console.log("hello expander");
+  fireOne() {
+    this.expandingElementOneTarget.classList.remove("d-none");
   }
 
-  fire() {
-    this.expandingElementTargets.forEach(expand => {
-      expand.classList.remove("d-none");
-    });
+  fireTwo() {
+    this.expandingElementTwoTarget.classList.remove("d-none");
+  }
 
+  fireThree() {
+    this.expandingElementThreeTarget.classList.remove("d-none");
   }
 }
