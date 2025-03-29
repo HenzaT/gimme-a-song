@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="container my-2 text-center">
+      <div class="container my-2 pt-5 text-center">
         <h1>Gimme a Song!</h1>
         <p>Feeling stuck? Don't know what kind of song to write?</p>
-        <p><i class="fa-solid fa-arrow-down"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down"></i></p>
+        <p><i class="fa-solid fa-arrow-down fa-bounce"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down fa-bounce"></i></p>
 
-        <div class="button text-center">
+        <div class="button text-center d-grid gap-2">
           <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary btn-lg my-4" %>
         </div>
       </div>
@@ -53,9 +53,11 @@
   <h3>How does it work?</h3>
   <div class="instructions-body">
     <ol>
-      <li><p>Click 'Gimme a Song!' to generate a new songwriting challenge</p></li>
-      <li><p>If you want to change something specfic, like just the time signature, you can!</p></li>
-      <li><p>When you are happy with your selection, click 'Done'. You can also name it when you save</p></li>
+      <i>
+        <li><p>Click 'Gimme a Song!' to generate a new songwriting challenge</p></li>
+        <li><p>If you want to change something specific, like just the time signature, you can!</p></li>
+        <li><p>When you are happy with your selection, click 'Done'. You can also name it when you save</p></li>
+      </i>
     </ol>
   </div>
 </div>

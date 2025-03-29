@@ -7,9 +7,7 @@ export default class extends Controller {
   getRandomBpm() {
     let min = 60;
     let max = 191;
-    let random = Math.floor(Math.random() * (max - min + 1));
-
-    return random
+    return Math.floor(Math.random() * (max - min + 1));
   }
 
   changeBpm() {
