@@ -17,7 +17,7 @@
           <div class="card m-3 border-3" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title text-center">
-                '<%= song.SongInstruments[0].name %>'
+                <%= song.name.titleize %>
               </h5>
               <div class="card-subtitle my-2 text-muted">
                 <h6>created on:</h6>
@@ -26,7 +26,7 @@
               <div class="d-flex">
                 <div class="instruments my-2 border">
                   <p>
-                    <strong>Instruments to use: </strong>
+                    <strong>Instruments:</strong>
                     <% song.instruments.each do |instrument| %>
                       <ul>
                         <li><%= instrument.name %></li>

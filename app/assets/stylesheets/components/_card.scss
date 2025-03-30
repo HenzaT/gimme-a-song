@@ -1,14 +1,32 @@
 .card {
-  background-color: #C5D5CF;
+  background-color: $song;
   border: 2px solid;
   box-shadow: 10px 10px 5px #727272;
+  // .card-body {
+  //   padding: 10px;
+  // }
 }
 
 .card-inst {
-  background-color: #d4c5d5;
+  background-color: $inst;
   border: 2px solid;
   box-shadow: 10px 10px 5px #727272;
+  // .card-body {
+  //   padding: 10px;
+  // }
 }
+
+.rectangle {
+  border: 2px solid black;
+  border-radius: 10px;
+  &.song {
+    background-color: $song;
+  }
+  &.inst {
+    background-color: $inst;
+  }
+}
+
 
 // .card:hover {
 //   transform: skewY(5deg);

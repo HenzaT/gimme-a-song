@@ -1,18 +1,28 @@
 <%= csrf_meta_tags %>
 
-<div class="new-body" data-controller="song">
+<div class="new-body container" data-controller="song">
   <div class="container d-flex justify-content-center my-4">
     <button class="btn btn-primary me-4" data-action="click->song#changeAll">Gimme a Song!</button>
     <button class="btn btn-success me-4" data-action="click->song#saveSong">Done</button>
-    <%#= simple_form_for [@song, @song_instrument] do |f| %>
-      <%#= f.input :mood %>
-      <%#= f.submit %>
-    <%# end %>
+  </div>
+
+  <div class="row container text-center">
+    <div class="col-6 d-grid gap-2">
+      <span class="rectangle song me-4">
+        <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i> Choose Your Song Elements <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i>
+        <p><i>randomly generate a song element by clicking 'something else'</i></p>
+      </span>
+    </div>
+    <div class="col-6 d-grid gap-2">
+      <span class="rectangle inst me-4">
+        <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i> Choose Your Instruments <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i>
+      </span>
+    </div>
   </div>
 
   <div class="row" data-controller="random-time-sig">
-    <div class="cards col-3 my-4">
-      <div class="card my-4" style="width: 18rem;" data-random-time-sig-target="timeSigCard">
+    <div class="cards col-3">
+      <div class="card my-4 w-45" data-random-time-sig-target="timeSigCard">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title text-center"><strong>Time Signature</strong></h5>
@@ -24,8 +34,7 @@
         </div>
       </div>
 
-      <div class="card my-4" style="width: 18rem;"
-            data-controller="random-bpm">
+      <div class="card my-4 w-45" data-controller="random-bpm">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>BPM</strong></h5>
@@ -37,9 +46,8 @@
         </div>
       </div>
     </div>
-    <div class="cards col-3 my-4">
-      <div class="card my-4" style="width: 18rem;"
-            data-controller="random-mood">
+    <div class="cards col-3">
+      <div class="card my-4 w-45" data-controller="random-mood">
         <div class="card-body text-center">
           <div>
             <h5 class="card-title"><strong>Mood</strong></h5>
@@ -51,9 +59,8 @@
         </div>
       </div>
 
-      <div class="card my-4" style="width: 18rem;">
-        <div class="card-body text-center"
-              data-controller="random-key">
+      <div class="card my-4 w-45">
+        <div class="card-body text-center" data-controller="random-key">
           <div>
             <h5 class="card-title"><strong>Key</strong></h5>
             <i class="fa-solid fa-lock-open"></i>
@@ -65,7 +72,7 @@
       </div>
     </div>
 
-    <div class="col-5 my-4">
+    <div class="col-5">
       <%= turbo_frame_tag :new_instrument do %>
         <div class="card-inst my-4" style="width: 18rem;">
           <div class="card-body text-center">
@@ -76,6 +83,5 @@
         </div>
       <% end %>
     </div>
-
   </div>
 </div>

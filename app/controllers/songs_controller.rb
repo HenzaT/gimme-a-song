@@ -13,7 +13,14 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
+    @song.save
+    # instruments = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample
+    # then loop through the instruments array to save multiple instruments and songInstruments(@song)
     @instrument = Instrument.new(instrument_params)
+    # instruments = []
+    # instruments.each do |i|
+
+    # end
     if @song.save && @instrument.save
       @song_instrument = SongInstrument.create!(song_id: @song.id, instrument_id: @instrument.id)
       @user_idea = UserIdea.create!(user_id: current_user.id, song_id: @song.id)
@@ -27,16 +34,7 @@ class SongsController < ApplicationController
 
   def new_instrument
     @instrument = Instrument.new
-  end
-
-  def edit
-    @song = Song.find(params[:id])
-  end
-
-  def update
-    @song = Song.find(params[:id])
-    @song.bpm = rand(60..190)
-    @song.update(bpm: params[@song.bpm])
+    @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
   end
 
   def my_songs

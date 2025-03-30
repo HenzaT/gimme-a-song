@@ -15,10 +15,10 @@ Song.destroy_all
 Instrument.destroy_all
 
 puts "creating songs..."
-happy = Song.create!(mood: "happy", key: "D minor", bpm: 120, time_signature: "4/4")
-sad = Song.create!(mood: "sad", key: "A major", bpm: 90, time_signature: "5/4")
-energetic = Song.create!(mood: "energetic", key: "C# major", bpm: 144, time_signature: "7/8")
-slow = Song.create!(mood: "slow", key: "D minor", bpm: 110, time_signature: "6/4")
+happy = Song.create!(mood: "happy", key: "D minor", bpm: 120, time_signature: "4/4", name: "happy song")
+sad = Song.create!(mood: "sad", key: "A major", bpm: 90, time_signature: "5/4", name: "sad song")
+energetic = Song.create!(mood: "energetic", key: "C# major", bpm: 144, time_signature: "7/8", name: "energetic song")
+slow = Song.create!(mood: "slow", key: "D minor", bpm: 110, time_signature: "6/4", name: "slow song")
 puts "created songs!"
 
 puts "creating instruments..."
@@ -32,23 +32,23 @@ piano = Instrument.create!(name: "piano")
 puts "created instruments!"
 
 puts "creating song ideas..."
-SongInstrument.create!(name: "happy song", song_id: happy.id, instrument_id: guitar.id)
-SongInstrument.create!(name: "happy song", song_id: happy.id, instrument_id: bass.id)
-SongInstrument.create!(name: "happy song", song_id: happy.id, instrument_id: drums.id)
-SongInstrument.create!(name: "happy song", song_id: happy.id, instrument_id: vocals.id)
+SongInstrument.create!(song_id: happy.id, instrument_id: guitar.id)
+SongInstrument.create!(song_id: happy.id, instrument_id: bass.id)
+SongInstrument.create!(song_id: happy.id, instrument_id: drums.id)
+SongInstrument.create!(song_id: happy.id, instrument_id: vocals.id)
 
-SongInstrument.create!(name: "sad song", song_id: sad.id, instrument_id: bass.id)
-SongInstrument.create!(name: "sad song", song_id: sad.id, instrument_id: drums.id)
-SongInstrument.create!(name: "sad song", song_id: sad.id, instrument_id: drum_machine.id)
+SongInstrument.create!(song_id: sad.id, instrument_id: bass.id)
+SongInstrument.create!(song_id: sad.id, instrument_id: drums.id)
+SongInstrument.create!(song_id: sad.id, instrument_id: drum_machine.id)
 
-SongInstrument.create!(name: "energetic song", song_id: energetic.id, instrument_id: piano.id)
-SongInstrument.create!(name: "energetic song", song_id: energetic.id, instrument_id: guitar.id)
-SongInstrument.create!(name: "energetic song", song_id: energetic.id, instrument_id: drums.id)
-SongInstrument.create!(name: "energetic song", song_id: energetic.id, instrument_id: bass.id)
-SongInstrument.create!(name: "energetic song", song_id: energetic.id, instrument_id: vocals.id)
+SongInstrument.create!(song_id: energetic.id, instrument_id: piano.id)
+SongInstrument.create!(song_id: energetic.id, instrument_id: guitar.id)
+SongInstrument.create!(song_id: energetic.id, instrument_id: drums.id)
+SongInstrument.create!(song_id: energetic.id, instrument_id: bass.id)
+SongInstrument.create!(song_id: energetic.id, instrument_id: vocals.id)
 
-SongInstrument.create!(name: "slow song", song_id: slow.id, instrument_id: synth.id)
-SongInstrument.create!(name: "slow song", song_id: slow.id, instrument_id: drum_machine.id)
+SongInstrument.create!(song_id: slow.id, instrument_id: synth.id)
+SongInstrument.create!(song_id: slow.id, instrument_id: drum_machine.id)
 
 puts "created song ideas!"
 

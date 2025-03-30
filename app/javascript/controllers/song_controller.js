@@ -7,21 +7,21 @@ export default class extends Controller {
 
   connect() {
     this.generatedData = {};
-    this.generatedInstrumentOne = {};
-    this.generatedInstrumentTwo = {};
-    this.generatedInstrumentThree = {};
-    this.generatedInstrumentFour = {};
+    // this.generatedInstrumentOne = {};
+    // this.generatedInstrumentTwo = {};
+    // this.generatedInstrumentThree = {};
+    // this.generatedInstrumentFour = {};
   }
 
   changeAll() {
     const randomTime = this.getRandomTime();
     this.updateTime(randomTime);
 
-    const RandomKey = this.getRandomKey();
-    this.updateKey(RandomKey);
+    const randomKey = this.getRandomKey();
+    this.updateKey(randomKey);
 
-    const RandomMood = this.getRandomMood();
-    this.updateMood(RandomMood);
+    const randomMood = this.getRandomMood();
+    this.updateMood(randomMood);
 
     const min = 60;
     const max = 191;
@@ -40,10 +40,10 @@ export default class extends Controller {
     this.allInstrumentFourTarget.innerText = randomInstrumentFour;
 
     this.generatedData = { time_signature: randomTime, key: randomKey, mood: randomMood, bpm: randomBpm };
-    this.generatedInstrumentOne = { name: randomInstrumentOne };
-    this.generatedInstrumentTwo = { name: randomInstrumentTwo };
-    this.generatedInstrumentThree = { name: randomInstrumentThree };
-    this.generatedInstrumentFour = { name: randomInstrumentFour };
+    // this.generatedInstrumentOne = { name: randomInstrumentOne };
+    // this.generatedInstrumentTwo = { name: randomInstrumentTwo };
+    // this.generatedInstrumentThree = { name: randomInstrumentThree };
+    // this.generatedInstrumentFour = { name: randomInstrumentFour };
   }
 
   getRandomTime() {
@@ -83,10 +83,8 @@ export default class extends Controller {
 
   saveSong() {
     if (!this.generatedData.time_signature || !this.generatedData.key ||
-        !this.generatedData.mood || !this.generatedData.bpm ||
-        !this.generatedInstrumentOne.name || !this.generatedInstrumentTwo.name ||
-        !this.generatedInstrumentThree.name || !this.generatedInstrumentFour.name ) {
-      alert("Please generate values before saving!");
+        !this.generatedData.mood || !this.generatedData.bpm ) {
+      // alert("Please generate values before saving!");
       return;
     }
 
@@ -96,7 +94,7 @@ export default class extends Controller {
         "content-type": "application/json",
         "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
       },
-      body: JSON.stringify({ song: this.generatedData, instrument: this.generatedInstrumentOne })
+      body: JSON.stringify({ song: this.generatedData })
     })
     .then(response => response.json())
     .then(data => {

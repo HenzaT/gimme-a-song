@@ -1,69 +1,65 @@
-<div class="new-instrument-body">
-  <%= turbo_frame_tag :new_instrument do %>
-    <div class="cards container my-4" data-controller="expander">
-      <div class="card-inst my-4 active" style="width: 18rem;" data-controller="random-instrument">
-        <div class="card-body text-center">
-          <div>
-            <h5 class="card-title"><strong>Instrument</strong></h5>
-            <i class="fa-solid fa-lock-open"></i>
-          </div>
-          <p class="card-text">Your instrument is: </p>
-          <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrumentOne">guitar</h2>
-          <div class="text-center">
-            <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-            <i class="icon fa-solid fa-square-plus fa-2x fa-fade" data-action="click->expander#fireOne"></i>
+<%= turbo_frame_tag :new_instrument do %>
+  <div class="new-instrument-body">
+      <div class="cards container my-4" data-controller="expander">
+        <div class="card-inst my-4 w-45 active">
+          <div class="card-body text-center">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentOne"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info">something else</button>
+              <i class="icon fa-solid fa-square-plus fa-2x fa-fade" data-action="click->expander#fireOne"></i>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="card-inst my-4 d-none" style="width: 18rem;" data-expander-target="expandingElementOne" data-controller="random-instrument">
-        <div class="card-body text-center">
-          <div>
-            <h5 class="card-title"><strong>Instrument</strong></h5>
-            <i class="fa-solid fa-lock-open"></i>
-          </div>
-          <p class="card-text">Your instrument is: </p>
-          <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrumentTwo">bass</h2>
-          <div class="text-center">
-            <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-            <i class="icon fa-solid fa-square-plus fa-2x fa-fade" data-action="click->expander#fireTwo"></i>
+        <div class="card-inst my-4 d-none w-45" data-expander-target="expandingElementOne">
+          <div class="card-body text-center">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentTwo"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info">something else</button>
+              <i class="icon fa-solid fa-square-plus fa-2x fa-fade" data-action="click->expander#fireTwo"></i>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="card-inst my-4 d-none" style="width: 18rem;" data-expander-target="expandingElementTwo" data-controller="random-instrument">
-        <div class="card-body text-center">
-          <div>
-            <h5 class="card-title"><strong>Instrument</strong></h5>
-            <i class="fa-solid fa-lock-open"></i>
-          </div>
-          <p class="card-text">Your instrument is: </p>
-          <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrumentThree">drums</h2>
-          <div class="text-center">
-            <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-            <i class="icon fa-solid fa-square-plus fa-2x" data-action="click->expander#fireThree"></i>
+        <div class="card-inst my-4 d-none w-45" data-expander-target="expandingElementTwo">
+          <div class="card-body text-center">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentThree"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info">something else</button>
+              <i class="icon fa-solid fa-square-plus fa-2x" data-action="click->expander#fireThree"></i>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="card-inst my-4 d-none" style="width: 18rem;" data-expander-target="expandingElementThree" data-controller="random-instrument">
-        <div class="card-body text-center">
-          <div>
-            <h5 class="card-title"><strong>Instrument</strong></h5>
-            <i class="fa-solid fa-lock-open"></i>
-          </div>
-          <p class="card-text">Your instrument is: </p>
-          <h2 data-random-instrument-target="instrument"
-              data-song-target="allInstrumentFour">vocals</h2>
-          <div class="text-center">
-            <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
-          </div>
+        <div class="card-inst my-4 d-none w-45" data-expander-target="expandingElementThree">
+          <div class="card-body text-center">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentFour"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info">something else</button>
+            </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
