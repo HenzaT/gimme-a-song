@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home new new_instrument]
+  skip_before_action :authenticate_user!, only: %i[home new]
 
   def home
     @two_songs = Song.limit(2)
@@ -9,11 +9,14 @@ class SongsController < ApplicationController
     @song_instrument = SongInstrument.new
     @song = Song.new
     @instrument = Instrument.new
+    @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
   end
 
   def create
     @song = Song.new(song_params)
     @song.save
+    @instrument = Instrument.new
+    @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
     # instruments = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample
     # then loop through the instruments array to save multiple instruments and songInstruments(@song)
     # @instrument = Instrument.new(instrument_params)
@@ -30,11 +33,6 @@ class SongsController < ApplicationController
     else
       render json: { error: "Failed to save song" }, status: :unprocessable_entity
     end
-  end
-
-  def new_instrument
-    @instrument = Instrument.new
-    @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
   end
 
   def my_songs
