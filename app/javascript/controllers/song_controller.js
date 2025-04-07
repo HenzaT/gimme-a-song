@@ -3,10 +3,23 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="song"
 export default class extends Controller {
-  static targets = [ "allTime", "allKey", "allBpm", "allMood", "allInstrumentOne", "allInstrumentTwo", "allInstrumentThree", "allInstrumentFour" ];
+  static targets = [
+    "allTime",
+    "allKey",
+    "allBpm",
+    "allMood",
+    "name",
+    "time",
+    "key",
+    "mood",
+    "bpm",
+    "allInstrumentOne",
+    "allInstrumentTwo",
+    "allInstrumentThree",
+    "allInstrumentFour"
+  ];
 
   connect() {
-    this.generatedData = {};
     // this.generatedInstrumentOne = {};
     // this.generatedInstrumentTwo = {};
     // this.generatedInstrumentThree = {};
@@ -15,7 +28,7 @@ export default class extends Controller {
 
   changeAll() {
     const randomTime = this.getRandomTime();
-    this.updateTime(randomTime);
+    this.updateTime(randomTime)
 
     const randomKey = this.getRandomKey();
     this.updateKey(randomKey);
@@ -39,7 +52,16 @@ export default class extends Controller {
     this.allInstrumentThreeTarget.innerText = randomInstrumentThree;
     this.allInstrumentFourTarget.innerText = randomInstrumentFour;
 
-    this.generatedData = { time_signature: randomTime, key: randomKey, mood: randomMood, bpm: randomBpm };
+    this.generatedData = {
+      time_signature: randomTime,
+      key: randomKey,
+      mood: randomMood,
+      bpm: randomBpm
+    };
+
+    sessionStorage.setItem('generatedData', JSON.stringify(this.generatedData));
+
+    console.log("Generated data now set:", this.generatedData)
     // this.generatedInstrumentOne = { name: randomInstrumentOne };
     // this.generatedInstrumentTwo = { name: randomInstrumentTwo };
     // this.generatedInstrumentThree = { name: randomInstrumentThree };
@@ -53,6 +75,7 @@ export default class extends Controller {
 
   updateTime(time) {
     this.allTimeTarget.innerText = time;
+    this.timeTarget.value = time;
   }
 
   getRandomKey() {
@@ -62,6 +85,7 @@ export default class extends Controller {
 
   updateKey(key) {
     this.allKeyTarget.innerText = key
+    this.keyTarget.value = key;
   }
 
   getRandomMood() {
@@ -71,6 +95,7 @@ export default class extends Controller {
 
   updateMood(mood) {
     this.allMoodTarget.innerText = mood;
+    this.moodTarget.value = mood;
   }
 
   getRandomBpm(min, max) {
@@ -79,23 +104,32 @@ export default class extends Controller {
 
   updateBpm(bpm) {
     this.allBpmTarget.innerText = bpm;
+    this.bpmTarget.value = bpm;
   }
 
+  //SAVE METHOD
   saveSong() {
-    if (!this.generatedData.time_signature || !this.generatedData.key ||
+    const generatedData = JSON.parse(sessionStorage.getItem('generatedData'));
+    console.log("Generated data from sessionStorage:", generatedData);
+
+    if (!this.generatedData || !this.generatedData.time_signature || !this.generatedData.key ||
         !this.generatedData.mood || !this.generatedData.bpm ) {
       // alert("Please generate values before saving!");
       return;
     }
 
+    const name = this.nameTarget.value;
+    console.log("Payload being sent:", JSON.stringify({ song: { ...this.generatedData, name } }))
+
     fetch("/songs", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
       },
-      body: JSON.stringify({ song: this.generatedData })
+      body: JSON.stringify({ song: { ...this.generatedData, name } })
     })
+
     .then(response => response.json())
     .then(data => {
       console.log("Song saved:", data)

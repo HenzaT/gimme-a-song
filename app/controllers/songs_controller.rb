@@ -16,13 +16,13 @@ class SongsController < ApplicationController
     @song.save
     # instruments = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample
     # then loop through the instruments array to save multiple instruments and songInstruments(@song)
-    @instrument = Instrument.new(instrument_params)
+    # @instrument = Instrument.new(instrument_params)
     # instruments = []
     # instruments.each do |i|
 
     # end
-    if @song.save && @instrument.save
-      @song_instrument = SongInstrument.create!(song_id: @song.id, instrument_id: @instrument.id)
+    if @song.save
+      # @song_instrument = SongInstrument.create!(song_id: @song.id, instrument_id: @instrument.id)
       @user_idea = UserIdea.create!(user_id: current_user.id, song_id: @song.id)
       redirect_to my_songs_path, notice: "Song successfully saved!"
       return
@@ -43,7 +43,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:time_signature, :bpm, :mood, :key)
+    params.require(:song).permit(:bpm, :mood, :key, :time_signature, :name)
   end
 
   def instrument_params
