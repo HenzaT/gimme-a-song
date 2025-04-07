@@ -1,13 +1,15 @@
 <%= csrf_meta_tags %>
 
+<%# Buttons %>
 <div class="container new-body" data-controller="song">
-  <div class="container d-flex justify-content-center my-4">
+  <div class="d-flex justify-content-center my-4">
     <button class="btn btn-primary me-4" data-action="click->song#changeAll">Gimme a Song!</button>
     <button type="button" class="btn btn-success me-4" data-bs-toggle="modal" data-bs-target="#saveSongNameModal">
       Done
     </button>
   </div>
 
+  <%# Form/Modal %>
   <div class="modal fade" id="saveSongNameModal" tabindex="-1" aria-labelledby="saveSongNameModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -17,7 +19,7 @@
         </div>
         <div class="modal-body">
           <%= simple_form_for @song do |f| %>
-            <%= f.input :name, input_html: { data: { song_target: :name } } %>
+            <%= f.input :name, error: 'Please name you song', input_html: { data: { song_target: :name } } %>
             <%= f.input :time_signature, as: :hidden, input_html: { value: "", data: { song_target: :time } } %>
             <%= f.input :key, as: :hidden, input_html: { value: "", data: { song_target: :key } } %>
             <%= f.input :mood, as: :hidden, input_html: { value: "", data: { song_target: :mood } } %>
@@ -29,82 +31,137 @@
     </div>
   </div>
 
-  <div class="row text-center">
+  <%# Song %>
+  <div class="row">
     <div class="col-6 d-grid gap-2">
-      <span class="rectangle song me-4">
+      <span class="rectangle song text-center me-4">
         <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i> Choose Your Song Elements <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i>
         <p><i>randomly generate a song element by clicking 'something else'</i></p>
       </span>
-    </div>
-    <div class="col-6 d-grid gap-2">
-      <span class="rectangle inst me-4">
-        <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i> Choose Your Instruments <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i>
-      </span>
+      
+      <div class="cards col-6">
+        <div class="card my-4 w-45" data-controller="random-time-sig">
+          <div class="card-body text-center">
+            <div>
+              <h5 class="card-title text-center"><strong>Time Signature</strong></h5>
+              <i class="fa-solid fa-lock-open" data-action="click->random-time-sig#lockTime" data-random-time-sig-target="padlock"></i>
+            </div>
+            <p class="card-text">The time signature is:</p>
+            <h2 data-random-time-sig-target="time" data-song-target="allTime">4/4</h2>
+            <button class="btn btn-info" data-random-time-sig-target="button" data-action="click->random-time-sig#changeTime">something else</button>
+          </div>
+        </div>
+        <div class="card my-4 w-45" data-controller="random-bpm">
+          <div class="card-body text-center">
+            <div>
+              <h5 class="card-title"><strong>BPM</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">The BPM is: </p>
+            <h2 data-random-bpm-target="bpm" data-song-target="allBpm">120</h2>
+            <button class="btn btn-info" data-action="click->random-bpm#changeBpm">something else</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards col-6">
+        <div class="card my-4 w-45" data-controller="random-mood">
+          <div class="card-body text-center">
+            <div>
+              <h5 class="card-title"><strong>Mood</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">The mood is: </p>
+            <h2 data-random-mood-target="mood" data-song-target="allMood">happy</h2>
+            <button class="btn btn-info" data-action="click->random-mood#changeMood">something else</button>
+          </div>
+        </div>
+        <div class="card my-4 w-45">
+          <div class="card-body text-center" data-controller="random-key">
+            <div>
+              <h5 class="card-title"><strong>Key</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">The key is: </p>
+            <h2 data-random-key-target="key" data-song-target="allKey">C</h2>
+            <button class="btn btn-info" data-action="click->random-key#changeKey">something else</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row" data-controller="random-time-sig">
-    <div class="cards col-3">
-      <div class="card my-4 w-45" data-random-time-sig-target="timeSigCard">
-        <div class="card-body text-center">
-          <div>
-            <h5 class="card-title text-center"><strong>Time Signature</strong></h5>
-            <i class="fa-solid fa-lock-open" data-action="click->random-time-sig#lockTime" data-random-time-sig-target="padlock"></i>
+  <div>
+
+
+    <%# Instruments %>
+    <div class="my-4" data-controller="expander">
+      <div class="col-6 d-grid gap-2">
+        <span class="rectangle inst me-4">
+          <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i> Choose Your Instruments <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i>
+        </span>
+      </div>
+      <div class="cards col-3">
+        <div class="card-inst my-4 w-45 active">
+          <div class="card-body text-center" data-controller="random-instrument">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentOne" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
+              <i class="icon fa-solid fa-square-plus fa-2x fa-fade" data-action="click->expander#fireOne"></i>
+            </div>
           </div>
-          <p class="card-text">The time signature is:</p>
-          <h2 data-random-time-sig-target="time" data-song-target="allTime">4/4</h2>
-          <button class="btn btn-info" data-random-time-sig-target="button" data-action="click->random-time-sig#changeTime">something else</button>
+        </div>
+        <div class="card-inst my-4 d-none w-45" data-expander-target="expandingElementOne">
+          <div class="card-body text-center" data-controller="random-instrument">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentTwo" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
+              <i class="icon fa-solid fa-square-plus fa-2x fa-fade" data-action="click->expander#fireTwo"></i>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="card my-4 w-45" data-controller="random-bpm">
-        <div class="card-body text-center">
-          <div>
-            <h5 class="card-title"><strong>BPM</strong></h5>
-            <i class="fa-solid fa-lock-open"></i>
+      <div class="cards col-3">
+        <div class="card-inst my-4 d-none w-45" data-expander-target="expandingElementTwo">
+          <div class="card-body text-center" data-controller="random-instrument">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentThree" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
+              <i class="icon fa-solid fa-square-plus fa-2x" data-action="click->expander#fireThree"></i>
+            </div>
           </div>
-          <p class="card-text">The BPM is: </p>
-          <h2 data-random-bpm-target="bpm" data-song-target="allBpm">120</h2>
-          <button class="btn btn-info" data-action="click->random-bpm#changeBpm">something else</button>
+        </div>
+        <div class="card-inst my-4 d-none w-45" data-expander-target="expandingElementThree">
+          <div class="card-body text-center" data-controller="random-instrument">
+            <div>
+              <h5 class="card-title"><strong>Instrument</strong></h5>
+              <i class="fa-solid fa-lock-open"></i>
+            </div>
+            <p class="card-text">Your instrument is: </p>
+            <h2 data-song-target="allInstrumentFour" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <div class="text-center">
+              <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="cards col-3">
-      <div class="card my-4 w-45" data-controller="random-mood">
-        <div class="card-body text-center">
-          <div>
-            <h5 class="card-title"><strong>Mood</strong></h5>
-            <i class="fa-solid fa-lock-open"></i>
-          </div>
-          <p class="card-text">The mood is: </p>
-          <h2 data-random-mood-target="mood" data-song-target="allMood">happy</h2>
-          <button class="btn btn-info" data-action="click->random-mood#changeMood">something else</button>
-        </div>
-      </div>
-
-      <div class="card my-4 w-45">
-        <div class="card-body text-center" data-controller="random-key">
-          <div>
-            <h5 class="card-title"><strong>Key</strong></h5>
-            <i class="fa-solid fa-lock-open"></i>
-          </div>
-          <p class="card-text">The key is: </p>
-          <h2 data-random-key-target="key" data-song-target="allKey">C</h2>
-          <button class="btn btn-info" data-action="click->random-key#changeKey">something else</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-6">
-      <%= turbo_frame_tag :new_instrument do %>
-        <div class="card-inst my-4" style="width: 18rem;">
-          <div class="card-body text-center">
-            <h5 class="card-title my-3"><strong>Add Instruments</strong></h5>
-            <p class="card-text"><i class="fa-solid fa-arrow-down fa-bounce mx-2"></i> Click Here <i class="fa-solid fa-arrow-down fa-bounce mx-2"></i></p>
-            <%= link_to '', songs_new_instruments_path, class: "icon fa-solid fa-square-plus fa-3x fa-fade text-dark mb-3" %>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
