@@ -8,28 +8,19 @@ class SongsController < ApplicationController
   def new
     @song_instrument = SongInstrument.new
     @song = Song.new
-    @instrument = Instrument.new
-    @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
   end
 
   def create
+    puts "PARAMS RECEIVED: #{params.inspect}"
     @song = Song.new(song_params)
-    @song.save
-    @instrument = Instrument.new
-    @instrument.name = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample(1).join
-    # instruments = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"].sample
-    # then loop through the instruments array to save multiple instruments and songInstruments(@song)
-    # @instrument = Instrument.new(instrument_params)
-    # instruments = []
-    # instruments.each do |i|
-
-    # end
+    instruments = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"]
     if @song.save
-      # @song_instrument = SongInstrument.create!(song_id: @song.id, instrument_id: @instrument.id)
+      if params[:instrument_name].present? && instruments.include?(params[:instrument_name])
+        instrument = Instrument.find_by(name: params[:instrument_name])
+        SongInstrument.create(song: @song, instrument: instrument) if instrument.present?
+      end
       @user_idea = UserIdea.create!(user_id: current_user.id, song_id: @song.id)
       redirect_to my_songs_path, notice: "Song successfully saved!"
-      return
-      # render json: @song, status: :created
     else
       render json: { error: "Failed to save song" }, status: :unprocessable_entity
     end

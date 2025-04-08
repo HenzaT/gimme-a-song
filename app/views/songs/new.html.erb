@@ -24,6 +24,7 @@
             <%= f.input :key, as: :hidden, input_html: { value: "", data: { song_target: :key } } %>
             <%= f.input :mood, as: :hidden, input_html: { value: "", data: { song_target: :mood } } %>
             <%= f.input :bpm, as: :hidden, input_html: { value: "", data: { song_target: :bpm } } %>
+            <%= hidden_field_tag :instrument_name, "", id: "instrument_name_field", data: { song_instrument_target: "instrumentNameField" } %>
             <%= f.button :submit, class: "btn btn-success", html: { data: { action: "click->song#saveSong" } }  %>
           <% end %>
         </div>
@@ -116,7 +117,7 @@
               <i class="fa-solid fa-lock-open"></i>
             </div>
             <p class="card-text">Your instrument is: </p>
-            <h2 data-song-target="allInstrumentOne" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <h2 data-song-target="allInstrumentOne" data-random-instrument-target="instrument">guitar</h2>
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
           </div>
         </div>
@@ -127,14 +128,14 @@
               <i class="fa-solid fa-lock-open"></i>
             </div>
             <p class="card-text">Your instrument is: </p>
-            <h2 data-song-target="allInstrumentTwo" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <h2 data-song-target="allInstrumentTwo" data-random-instrument-target="instrument">bass</h2>
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
           </div>
         </div>
       </div>
 
       <%# Instrument Row 2 %>
-      <div class="row justify-content-around my-4">
+      <div class="row justify-content-around my-4" data-expander-target="secondRow">
         <div class="col-5 card card-inst my-2 d-none w-45" data-expander-target="expandingElementTwo">
           <div class="card-body text-center" data-controller="random-instrument">
             <div>
@@ -142,7 +143,7 @@
               <i class="fa-solid fa-lock-open"></i>
             </div>
             <p class="card-text">Your instrument is: </p>
-            <h2 data-song-target="allInstrumentThree" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <h2 data-song-target="allInstrumentThree" data-random-instrument-target="instrument">drums</h2>
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
           </div>
         </div>
@@ -153,7 +154,7 @@
               <i class="fa-solid fa-lock-open"></i>
             </div>
             <p class="card-text">Your instrument is: </p>
-            <h2 data-song-target="allInstrumentFour" data-random-instrument-target="instrument"><%= @instrument.name %></h2>
+            <h2 data-song-target="allInstrumentFour" data-random-instrument-target="instrument">vocals</h2>
             <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
           </div>
         </div>

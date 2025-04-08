@@ -19,13 +19,6 @@ export default class extends Controller {
     "allInstrumentFour"
   ];
 
-  connect() {
-    // this.generatedInstrumentOne = {};
-    // this.generatedInstrumentTwo = {};
-    // this.generatedInstrumentThree = {};
-    // this.generatedInstrumentFour = {};
-  }
-
   changeAll() {
     const randomTime = this.getRandomTime();
     this.updateTime(randomTime)
@@ -59,13 +52,14 @@ export default class extends Controller {
       bpm: randomBpm
     };
 
+    this.selectedInstruments = {
+      instrument_name: randomInstrumentOne
+    };
+
+    sessionStorage.setItem('selectedInstrument', JSON.stringify(this.selectedInstruments));
     sessionStorage.setItem('generatedData', JSON.stringify(this.generatedData));
 
-    console.log("Generated data now set:", this.generatedData)
-    // this.generatedInstrumentOne = { name: randomInstrumentOne };
-    // this.generatedInstrumentTwo = { name: randomInstrumentTwo };
-    // this.generatedInstrumentThree = { name: randomInstrumentThree };
-    // this.generatedInstrumentFour = { name: randomInstrumentFour };
+    console.log("Generated data now set:", this.generatedData, this.selectedInstruments);
   }
 
   getRandomTime() {
@@ -110,16 +104,18 @@ export default class extends Controller {
   //SAVE METHOD
   saveSong() {
     const generatedData = JSON.parse(sessionStorage.getItem('generatedData'));
+    const instrumentName = sessionStorage.getItem('selectedInstrument');
+    const name = this.nameTarget.value;
+
     console.log("Generated data from sessionStorage:", generatedData);
 
-    if (!this.generatedData || !this.generatedData.time_signature || !this.generatedData.key ||
-        !this.generatedData.mood || !this.generatedData.bpm ) {
+    if (!generatedData || !generatedData.time_signature || !generatedData.key ||
+        !generatedData.mood || !generatedData.bpm ) {
       // alert("Please generate values before saving!");
       return;
     }
 
-    const name = this.nameTarget.value;
-    console.log("Payload being sent:", JSON.stringify({ song: { ...this.generatedData, name } }))
+    console.log("Payload being sent:", JSON.stringify({ song: { ...generatedData, name }, instrument_name: instrumentName }))
 
     fetch("/songs", {
       method: "POST",
@@ -127,7 +123,13 @@ export default class extends Controller {
         "Content-Type": "application/json",
         "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
       },
-      body: JSON.stringify({ song: { ...this.generatedData, name } })
+      body: JSON.stringify({
+        song: {
+          ...generatedData,
+          name
+        },
+        instrument_name: instrumentName
+      })
     })
 
     .then(response => response.json())
