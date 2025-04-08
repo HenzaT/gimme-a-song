@@ -5,6 +5,9 @@
   // .card-body {
   //   padding: 10px;
   // }
+  .card-title-name {
+    font-weight: bolder;
+  }
 }
 
 .card-inst {
@@ -17,8 +20,6 @@
 }
 
 .explain-card {
-  height: 110px;
-
   .rectangle {
     border: 2px solid black;
     border-radius: 10px;

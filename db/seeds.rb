@@ -33,22 +33,12 @@ puts "created instruments!"
 
 puts "creating song ideas..."
 SongInstrument.create!(song_id: happy.id, instrument_id: guitar.id)
-SongInstrument.create!(song_id: happy.id, instrument_id: bass.id)
-SongInstrument.create!(song_id: happy.id, instrument_id: drums.id)
-SongInstrument.create!(song_id: happy.id, instrument_id: vocals.id)
 
 SongInstrument.create!(song_id: sad.id, instrument_id: bass.id)
-SongInstrument.create!(song_id: sad.id, instrument_id: drums.id)
-SongInstrument.create!(song_id: sad.id, instrument_id: drum_machine.id)
 
 SongInstrument.create!(song_id: energetic.id, instrument_id: piano.id)
-SongInstrument.create!(song_id: energetic.id, instrument_id: guitar.id)
-SongInstrument.create!(song_id: energetic.id, instrument_id: drums.id)
-SongInstrument.create!(song_id: energetic.id, instrument_id: bass.id)
-SongInstrument.create!(song_id: energetic.id, instrument_id: vocals.id)
 
 SongInstrument.create!(song_id: slow.id, instrument_id: synth.id)
-SongInstrument.create!(song_id: slow.id, instrument_id: drum_machine.id)
 
 puts "created song ideas!"
 

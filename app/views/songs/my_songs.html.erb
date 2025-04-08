@@ -5,10 +5,10 @@
 
 
   <div class="d-flex justify-content-center flex-wrap">
-    <% current_user.UserIdeas.each do |idea| %>
+    <% @sorted_ideas.each do |idea| %>
       <div class="card m-3" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title text-center">
+          <h5 class="card-title-name text-center">
             <%= idea.song.name %>
           </h5>
           <div class="card-subtitle my-2 text-muted">
@@ -18,7 +18,7 @@
           <div class="d-flex">
             <div class="instruments my-2 border">
               <p>
-                <strong>Instruments to use: </strong>
+                <strong>Starting Instrument: </strong>
                 <% idea.song.instruments.each do |instrument| %>
                   <ul>
                     <li><%= instrument.name %></li>

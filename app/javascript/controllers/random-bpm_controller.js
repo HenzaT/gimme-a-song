@@ -5,9 +5,9 @@ export default class extends Controller {
   static targets = ["bpm"];
 
   getRandomBpm() {
-    let min = 60;
-    let max = 191;
-    return Math.floor(Math.random() * (max - min + 1));
+    const min = 60;
+    const max = 191;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   changeBpm() {

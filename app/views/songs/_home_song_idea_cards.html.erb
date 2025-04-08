@@ -1,0 +1,29 @@
+<div class="d-flex flex-row justify-content-around">
+  <div class="card m-3 border-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title-name text-center">
+        <%= @random_idea.song.name.titleize %>
+      </h5>
+      <div class="card-subtitle my-2 text-muted">
+        <h6>created on:</h6>
+        <h6><%= @random_idea.song.created_at.strftime('%A %e %B, %Y') %></h6>
+      </div>
+      <div class="d-flex">
+        <div class="instruments my-2 border">
+          <p>
+            <strong>Starting Instrument:</strong>
+            <ul>
+              <li><%= @random_idea.instrument.name %></li>
+            </ul>
+          </p>
+        </div>
+        <div class="song-elements my-2 border">
+          <p class="card-text"><strong>time signature: </strong><%= @random_idea.song.time_signature %></p>
+          <p class="card-text"><strong>mood: </strong><%= @random_idea.song.mood %></p>
+          <p class="card-text"><strong>key: </strong><%= @random_idea.song.key %></p>
+          <p class="card-text"><strong>BPM: </strong><%= @random_idea.song.bpm %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

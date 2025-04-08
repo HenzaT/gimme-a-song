@@ -2,7 +2,12 @@ class SongsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home new]
 
   def home
-    @two_songs = Song.limit(2)
+    song_ideas = SongInstrument.all
+    random_ideas = []
+    song_ideas.map do |s|
+      random_ideas << s
+    end
+    @random_idea = random_ideas.flatten.uniq.sample
   end
 
   def new
@@ -11,7 +16,6 @@ class SongsController < ApplicationController
   end
 
   def create
-    puts "PARAMS RECEIVED: #{params.inspect}"
     @song = Song.new(song_params)
     instruments = ["guitar", "bass", "vocals", "piano", "drums", "drum machine", "synth"]
     if @song.save
@@ -27,6 +31,8 @@ class SongsController < ApplicationController
   end
 
   def my_songs
+    ideas = current_user.UserIdeas
+    @sorted_ideas = ideas.order(created_at: :desc)
   end
 
   private

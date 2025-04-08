@@ -14,9 +14,10 @@ export default class extends Controller {
     "mood",
     "bpm",
     "allInstrumentOne",
-    "allInstrumentTwo",
-    "allInstrumentThree",
-    "allInstrumentFour"
+    // "allInstrumentTwo",
+    // "allInstrumentThree",
+    // "allInstrumentFour",
+    "instrumentName"
   ];
 
   changeAll() {
@@ -36,14 +37,16 @@ export default class extends Controller {
 
     const instruments = ["guitar", "piano", "bass", "drums", "drum machine", "synth", "vocals"];
     const randomInstrumentOne = instruments[Math.floor(Math.random() * instruments.length)];
-    const randomInstrumentTwo = instruments[Math.floor(Math.random() * instruments.length)];
-    const randomInstrumentThree = instruments[Math.floor(Math.random() * instruments.length)];
-    const randomInstrumentFour = instruments[Math.floor(Math.random() * instruments.length)];
+    // const randomInstrumentTwo = instruments[Math.floor(Math.random() * instruments.length)];
+    // const randomInstrumentThree = instruments[Math.floor(Math.random() * instruments.length)];
+    // const randomInstrumentFour = instruments[Math.floor(Math.random() * instruments.length)];
 
     this.allInstrumentOneTarget.innerText = randomInstrumentOne;
-    this.allInstrumentTwoTarget.innerText = randomInstrumentTwo;
-    this.allInstrumentThreeTarget.innerText = randomInstrumentThree;
-    this.allInstrumentFourTarget.innerText = randomInstrumentFour;
+    // this.allInstrumentTwoTarget.innerText = randomInstrumentTwo;
+    // this.allInstrumentThreeTarget.innerText = randomInstrumentThree;
+    // this.allInstrumentFourTarget.innerText = randomInstrumentFour;
+
+    this.instrumentNameTarget.value = randomInstrumentOne;
 
     this.generatedData = {
       time_signature: randomTime,
@@ -53,7 +56,7 @@ export default class extends Controller {
     };
 
     this.selectedInstruments = {
-      instrument_name: randomInstrumentOne
+      instrument_name: randomInstrumentOne,
     };
 
     sessionStorage.setItem('selectedInstrument', JSON.stringify(this.selectedInstruments));
@@ -104,8 +107,10 @@ export default class extends Controller {
   //SAVE METHOD
   saveSong() {
     const generatedData = JSON.parse(sessionStorage.getItem('generatedData'));
-    const instrumentName = sessionStorage.getItem('selectedInstrument');
+    const instrumentData = JSON.parse(sessionStorage.getItem('selectedInstrument'));
     const name = this.nameTarget.value;
+
+    this.AllInstrumentOneTarget.value = instrumentName;
 
     console.log("Generated data from sessionStorage:", generatedData);
 
@@ -114,6 +119,10 @@ export default class extends Controller {
       // alert("Please generate values before saving!");
       return;
     }
+
+    const instrumentName = instrumentData ? instrumentData.instrument_name : null;
+
+    console.log("Instrument Name:", instrumentName);
 
     console.log("Payload being sent:", JSON.stringify({ song: { ...generatedData, name }, instrument_name: instrumentName }))
 
@@ -124,10 +133,7 @@ export default class extends Controller {
         "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
       },
       body: JSON.stringify({
-        song: {
-          ...generatedData,
-          name
-        },
+        song: { ...generatedData, name },
         instrument_name: instrumentName
       })
     })

@@ -9,7 +9,6 @@ export default class extends Controller {
     return instruments[Math.floor(Math.random() * instruments.length)];
   }
 
-
   changeInstrument() {
     this.instrumentTarget.innerText = this.randomInstrument();
   }

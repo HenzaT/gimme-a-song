@@ -1,6 +1,9 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
+  <div class="row justify-content-around align-items-center">
+    <div class="col-12 col-lg-4 d-none d-sm-block">
+      <%= render "home_song_idea_cards" %>
+    </div>
+    <div class="col-12 col-lg-4">
       <div class="container my-2 pt-5 text-center">
         <h1>Gimme a Song!</h1>
         <p>Feeling stuck? Don't know what kind of song to write?</p>
@@ -11,47 +14,14 @@
         </div>
       </div>
     </div>
-    <div class="col-md-9">
-      <div class="d-flex flex-row justify-content-around">
-        <% @two_songs.each do |song| %>
-          <div class="card m-3 border-3" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title text-center">
-                <%= song.name.titleize %>
-              </h5>
-              <div class="card-subtitle my-2 text-muted">
-                <h6>created on:</h6>
-                <h6><%= song.SongInstruments[0].created_at.strftime('%A %e %B, %Y') %></h6>
-              </div>
-              <div class="d-flex">
-                <div class="instruments my-2 border">
-                  <p>
-                    <strong>Instruments:</strong>
-                    <% song.instruments.each do |instrument| %>
-                      <ul>
-                        <li><%= instrument.name %></li>
-                      </ul>
-                    <% end %>
-                  </p>
-                </div>
-                <div class="song-elements my-2 border">
-                  <p class="card-text"><strong>time signature: </strong><%= song.time_signature %></p>
-                  <p class="card-text"><strong>mood: </strong><%= song.mood %></p>
-                  <p class="card-text"><strong>key: </strong><%= song.key %></p>
-                  <p class="card-text"><strong>BPM: </strong><%= song.bpm %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="col-12 col-lg-4">
+      <%= render "home_song_idea_cards" %>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <h3>How does it work?</h3>
-  <div class="instructions-body">
+
+  <div class="instructions-body my-3">
+    <h3>How does it work?</h3>
     <ol>
       <i>
         <li><p>Click 'Gimme a Song!' to generate a new songwriting challenge</p></li>
