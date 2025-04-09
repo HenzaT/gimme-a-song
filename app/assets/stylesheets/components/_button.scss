@@ -1,8 +1,19 @@
-.btn {
+.btn, .main-btn {
   border-radius: 20px;
   border: 1px solid black;
 }
 
 .btn:hover {
+  border: 1px solid black;
+}
+
+.main-btn {
+  background-color: #5a52b6;
+  color: white;
+}
+
+.main-btn:hover, .main-btn:active {
+  background-color: #362e90;
+  color: white;
   border: 1px solid black;
 }

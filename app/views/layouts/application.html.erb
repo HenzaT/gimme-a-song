@@ -21,7 +21,10 @@
 
   <body style="background-color: #F5F5F5;">
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="main-content">
+      <%= render "shared/flashes" %>
+      <%= yield %>
+    </div>
+    <%= render "shared/mobile_navbar" %>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-around align-items-center">
-    <div class="col-12 col-lg-4 d-none d-sm-block">
+    <div class="col-12 col-lg-4 d-none d-lg-block">
       <%= render "home_song_idea_cards" %>
     </div>
     <div class="col-12 col-lg-4">
@@ -9,8 +9,8 @@
         <p>Feeling stuck? Don't know what kind of song to write?</p>
         <p><i class="fa-solid fa-arrow-down fa-bounce"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down fa-bounce"></i></p>
 
-        <div class="button text-center d-grid gap-2">
-          <%= link_to 'Gimme a song!', new_song_path, class: "btn btn-primary btn-lg my-4" %>
+        <div class="text-center d-grid gap-2">
+          <%= link_to 'New Idea', new_song_path, class: "btn main-btn btn-lg my-2" %>
         </div>
       </div>
     </div>
@@ -24,8 +24,9 @@
     <h3>How does it work?</h3>
     <ol>
       <i>
-        <li><p>Click 'Gimme a Song!' to generate a new songwriting challenge</p></li>
-        <li><p>If you want to change something specific, like just the time signature, you can!</p></li>
+        <li><p>Click 'New Idea' to generate a new songwriting challenge</p></li>
+        <li><p>Click 'Gimme a Song' to randomly change everything</p></li>
+        <li><p>Click 'something else' to change something specific!</p></li>
         <li><p>When you are happy with your selection, click 'Done'. You can also name it when you save</p></li>
       </i>
     </ol>

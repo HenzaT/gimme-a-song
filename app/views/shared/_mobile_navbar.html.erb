@@ -1,0 +1,21 @@
+<div class="navbar navbar-banner navbar-light navbar-lewagon fixed-bottom d-flex justify-content-around text-center d-block d-sm-none">
+  <% if user_signed_in? %>
+    <%= link_to root_path do %>
+      <%= image_tag "Home.png", class: "navbar-icon" %>
+    <% end %>
+    <%= link_to new_song_path do %>
+      <%= image_tag "guitar_3659784.png", class: "navbar-icon" %>
+    <% end %>
+    <%= link_to my_songs_path do %>
+      <%= image_tag "User.png", class: "navbar-icon" %>
+    <% end %>
+  <% else %>
+    <div class="col-6">
+      <%= link_to '', new_user_session_path, class: "nav-link fa-solid fa-right-to-bracket fa-2x" %>
+    </div>
+
+    <div class="col-6">
+      <%= link_to '', new_user_registration_path, class: "nav-link fa-solid fa-user-plus fa-2x" %>
+    </div>
+  <% end %>
+</div>
