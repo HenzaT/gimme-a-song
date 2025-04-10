@@ -46,33 +46,33 @@
 
       <%# Song Row 1 %>
       <div class="row justify-content-evenly my-4">
-        <div class="col-10 col-lg-5 card my-1 w-35" data-controller="random-time-sig">
+        <div class="col-10 col-lg-5 card my-1 w-35">
           <div class="card-body text-center">
             <div>
               <h5 class="card-title text-center"><strong>Time Signature</strong></h5>
-              <i class="fa-solid fa-lock-open" data-action="click->random-time-sig#lockTime" data-random-time-sig-target="padlock"></i>
+              <i class="fa-solid fa-lock-open" data-song-target="timePadlock" data-action="click->song#lockTime"></i>
             </div>
             <p class="card-text">The time signature is:</p>
-            <h2 data-random-time-sig-target="time" data-song-target="allTime">4/4</h2>
-            <button class="btn btn-info" data-random-time-sig-target="button" data-action="click->random-time-sig#changeTime">something else</button>
+            <h2 data-song-target="allTime">4/4</h2>
+            <%# <button class="btn btn-info" data-song-target="timeButton" data-action="click->song#changeTime">something else</button> %>
           </div>
         </div>
-        <div class="col-10 col-lg-5 card my-1 w-35" data-controller="random-bpm">
+        <div class="col-10 col-lg-5 card my-1 w-35">
           <div class="card-body text-center">
             <div>
               <h5 class="card-title"><strong>BPM</strong></h5>
-              <i class="fa-solid fa-lock-open"></i>
+              <i class="fa-solid fa-lock-open" data-song-target="timePadlock" data-action="click->song#lockTime"></i>
             </div>
             <p class="card-text">The BPM is: </p>
             <h2 data-random-bpm-target="bpm" data-song-target="allBpm">120</h2>
-            <button class="btn btn-info" data-action="click->random-bpm#changeBpm">something else</button>
+            <%# <button class="btn btn-info" data-action="click->random-bpm#changeBpm">something else</button> %>
           </div>
         </div>
       </div>
 
       <%# Song Row 2 %>
       <div class="row justify-content-evenly my-4">
-        <div class="col-10 col-lg-5 card my-1 w-35" data-controller="random-mood">
+        <div class="col-10 col-lg-5 card my-1 w-35">
           <div class="card-body text-center">
             <div>
               <h5 class="card-title"><strong>Mood</strong></h5>
@@ -80,10 +80,10 @@
             </div>
             <p class="card-text">The mood is: </p>
             <h2 data-random-mood-target="mood" data-song-target="allMood">happy</h2>
-            <button class="btn btn-info" data-action="click->random-mood#changeMood">something else</button>
+            <%# <button class="btn btn-info" data-action="click->random-mood#changeMood">something else</button> %>
           </div>
         </div>
-        <div class="col-10 col-lg-5 card my-1 w-35" data-controller="random-key">
+        <div class="col-10 col-lg-5 card my-1 w-35">
           <div class="card-body text-center">
             <div>
               <h5 class="card-title"><strong>Key</strong></h5>
@@ -91,7 +91,7 @@
             </div>
             <p class="card-text">The key is: </p>
             <h2 data-random-key-target="key" data-song-target="allKey">C</h2>
-            <button class="btn btn-info" data-action="click->random-key#changeKey">something else</button>
+            <%# <button class="btn btn-info" data-action="click->random-key#changeKey">something else</button> %>
           </div>
         </div>
       </div>
@@ -111,14 +111,14 @@
       <%# Instrument Row %>
       <div class="row justify-content-evenly my-4">
         <div class="col-10 col-lg-11 card card-inst my-1 w-45 active">
-          <div class="card-body text-center" data-controller="random-instrument">
+          <div class="card-body text-center">
             <div>
               <h5 class="card-title"><strong>Instrument</strong></h5>
               <i class="fa-solid fa-lock-open"></i>
             </div>
             <p class="card-text">Your starting instrument: </p>
             <h2 data-song-target="allInstrumentOne" data-random-instrument-target="instrument">guitar</h2>
-            <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button>
+            <%# <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button> %>
           </div>
         </div>
       </div>

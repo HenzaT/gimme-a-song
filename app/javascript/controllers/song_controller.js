@@ -13,12 +13,19 @@ export default class extends Controller {
     "key",
     "mood",
     "bpm",
+    "timeButton",
+    "timePadlock",
     "allInstrumentOne",
     "instrumentName"
   ];
 
-  connect() {
-    this.element.addEventListener("time:changed", this.updateTime.bind(this));
+  lockTime() {
+    this.timePadlockTargets.forEach(padlock => {
+      padlock.classList.toggle("fa-lock-open");
+      padlock.classList.toggle("fa-lock");
+    });
+    // this.timePadlockTarget.classList.toggle("fa-lock-open");
+    // this.timePadlockTarget.classList.toggle("fa-lock");
   }
 
   changeAll() {
