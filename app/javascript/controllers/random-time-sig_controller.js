@@ -13,10 +13,16 @@ export default class extends Controller {
   changeTime() {
     const newTime = this.getRandomTime();
     this.timeTarget.innerText = newTime;
+
+    // this.element.dispatchEvent(new CustomEvent("time:changed", {
+    //   detail: { time_signature: newTime },
+    //   bubbles: true
+    // }));
   }
 
   lockTime() {
     this.buttonTarget.toggleAttribute("disabled");
-    // this.padlockTarget.toggleClass();
+    this.padlockTarget.classList.toggle("fa-lock-open");
+    this.padlockTarget.classList.toggle("fa-lock");
   }
 }

@@ -14,11 +14,12 @@ export default class extends Controller {
     "mood",
     "bpm",
     "allInstrumentOne",
-    // "allInstrumentTwo",
-    // "allInstrumentThree",
-    // "allInstrumentFour",
     "instrumentName"
   ];
+
+  connect() {
+    this.element.addEventListener("time:changed", this.updateTime.bind(this));
+  }
 
   changeAll() {
     const randomTime = this.getRandomTime();
@@ -37,14 +38,8 @@ export default class extends Controller {
 
     const instruments = ["guitar", "piano", "bass", "drums", "drum machine", "synth", "vocals"];
     const randomInstrumentOne = instruments[Math.floor(Math.random() * instruments.length)];
-    // const randomInstrumentTwo = instruments[Math.floor(Math.random() * instruments.length)];
-    // const randomInstrumentThree = instruments[Math.floor(Math.random() * instruments.length)];
-    // const randomInstrumentFour = instruments[Math.floor(Math.random() * instruments.length)];
 
     this.allInstrumentOneTarget.innerText = randomInstrumentOne;
-    // this.allInstrumentTwoTarget.innerText = randomInstrumentTwo;
-    // this.allInstrumentThreeTarget.innerText = randomInstrumentThree;
-    // this.allInstrumentFourTarget.innerText = randomInstrumentFour;
 
     this.instrumentNameTarget.value = randomInstrumentOne;
 
@@ -110,21 +105,9 @@ export default class extends Controller {
     const instrumentData = JSON.parse(sessionStorage.getItem('selectedInstrument'));
     const name = this.nameTarget.value;
 
-    this.AllInstrumentOneTarget.value = instrumentName;
-
-    console.log("Generated data from sessionStorage:", generatedData);
-
-    if (!generatedData || !generatedData.time_signature || !generatedData.key ||
-        !generatedData.mood || !generatedData.bpm ) {
-      // alert("Please generate values before saving!");
-      return;
-    }
-
     const instrumentName = instrumentData ? instrumentData.instrument_name : null;
+    this.allInstrumentOneTarget.value = instrumentName;
 
-    console.log("Instrument Name:", instrumentName);
-
-    console.log("Payload being sent:", JSON.stringify({ song: { ...generatedData, name }, instrument_name: instrumentName }))
 
     fetch("/songs", {
       method: "POST",
