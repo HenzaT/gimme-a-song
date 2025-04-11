@@ -15,17 +15,52 @@ export default class extends Controller {
     "bpm",
     "timeButton",
     "timePadlock",
+    "bpmPadlock",
+    "moodPadlock",
+    "keyPadlock",
+    "instPadlock",
     "allInstrumentOne",
     "instrumentName"
   ];
 
+  connect() {
+    this.changeAll;
+  }
+
+  locked = false
+
   lockTime() {
-    this.timePadlockTargets.forEach(padlock => {
-      padlock.classList.toggle("fa-lock-open");
-      padlock.classList.toggle("fa-lock");
-    });
-    // this.timePadlockTarget.classList.toggle("fa-lock-open");
-    // this.timePadlockTarget.classList.toggle("fa-lock");
+    this.lockUnlock(this.timePadlockTarget);
+    this.locked = !this.locked
+
+    if (this.locked) {
+      console.log("this is locked!")
+    } else {
+      console.log("this is unlocked")
+      this.changeAll();
+    }
+  }
+
+  lockBpm() {
+    this.lockUnlock(this.bpmPadlockTarget);
+  }
+
+  lockMood() {
+    this.lockUnlock(this.moodPadlockTarget);
+    console.log(this.moodPadlockTarget)
+  }
+
+  lockKey() {
+    this.lockUnlock(this.keyPadlockTarget);
+  }
+
+  lockInst() {
+    this.lockUnlock(this.instPadlockTarget);
+  }
+
+  lockUnlock(element) {
+    element.classList.toggle("fa-lock-open");
+    element.classList.toggle("fa-lock");
   }
 
   changeAll() {
