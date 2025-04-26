@@ -1,13 +1,15 @@
 <% if instrument.name == 'guitar' %>
-  <%= image_tag 'guitar.png', class: "instrument-picture" %>
+  <%= image_tag 'guitar.png', class: "instrument-picture", alt: "guitar-image" %>
 <% elsif instrument.name == 'bass' %>
-  <%= image_tag 'bass.png', class: "instrument-picture" %>
+  <%= image_tag 'bass.png', class: "instrument-picture", alt: "bass-guitar-image" %>
 <% elsif instrument.name == 'synth' %>
-  <%= image_tag 'synth.png', class: "instrument-picture" %>
+  <%= image_tag 'synth.png', class: "instrument-picture", alt: "synthesiser-image" %>
 <% elsif instrument.name == 'piano' %>
-  <%= image_tag 'piano.png', class: "instrument-picture" %>
+  <%= image_tag 'piano.png', class: "instrument-picture", alt: "piano-image" %>
 <% elsif instrument.name == 'drum machine' %>
-  <%= image_tag 'drum-machine.png', class: "instrument-picture" %>
+  <%= image_tag 'drum-machine.png', class: "instrument-picture", alt: "drum-machine-image" %>
+<% elsif instrument.name == 'drums' %>
+  <%= image_tag 'drum-set.png', class: "instrument-picture", alt: "drumset-image" %>
 <% else %>
-  <%= image_tag 'vocals.png', class: "instrument-picture" %>
+  <%= image_tag 'vocals.png', class: "instrument-picture", alt: "microphone-image" %>
 <% end %>

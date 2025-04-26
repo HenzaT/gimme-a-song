@@ -4,7 +4,7 @@
   </div>
 
 
-  <div class="d-flex justify-content-center flex-wrap">
+  <div class="user-cards d-flex justify-content-center flex-wrap" data-controller="loader" data-loader-target="userCard">
     <% @sorted_ideas.each do |idea| %>
       <div class="card m-3" style="width: 18rem;">
         <div class="card-body">
@@ -17,7 +17,7 @@
               <h6><%= idea.song.created_at.strftime('%A %e %B, %Y') %></h6>
             </div>
             <%= link_to user_idea_path(idea), class: "text-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash"></i>
+              <i class="fa-regular fa-trash-can"></i>
             <% end %>
           </div>
           <div>
