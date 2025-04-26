@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :song_instruments, only: %i[new create]
   end
   get "/my-songs", to: "songs#my_songs"
+  resources :user_ideas, only: [:destroy]
 
   # Defines the root path route ("/")
   # root "posts#index"

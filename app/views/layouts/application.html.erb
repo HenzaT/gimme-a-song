@@ -19,12 +19,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background-color: #F5F5F5;">
+  <body>
     <%= render "shared/navbar" %>
     <div class="main-content">
       <%= render "shared/flashes" %>
       <%= yield %>
     </div>
-    <%= render "shared/mobile_navbar" %>
   </body>
+  <%= render "shared/mobile_navbar" %>
 </html>

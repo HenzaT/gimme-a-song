@@ -1,18 +1,24 @@
 .card {
   background-color: $song;
   border: 2px solid;
+  border-radius: 10px;
   box-shadow: 10px 10px 5px #727272;
-  // .card-body {
-  //   padding: 10px;
-  // }
+  background-image: image-url("cross-scratches.png");
+
   .card-title-name {
     font-weight: bolder;
+  }
+
+  .card-text {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
 .card-inst {
   background-color: $inst;
   border: 2px solid;
+  border-radius: 10px;
   box-shadow: 10px 10px 5px #727272;
   // .card-body {
   //   padding: 10px;
@@ -36,6 +42,19 @@
   }
 }
 
-// .card:hover {
-//   transform: skewY(5deg);
-// }
+.instruments {
+  background-color: white;
+  background-image: image-url("cross-scratches.png");
+  border-radius: 15px;
+}
+
+.song-elements {
+  background-color: white;
+  background-image: image-url("cross-scratches.png");
+  border-radius: 15px;
+}
+
+.instrument-picture {
+  width: 30px;
+  height: 30px;
+}

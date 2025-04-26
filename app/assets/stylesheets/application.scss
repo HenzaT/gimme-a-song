@@ -11,6 +11,11 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  background-color: #ededed;
+  background-image: image-url('mocha-grunge.png');
+}
+
 .main-content {
   margin-bottom: 120px;
 }

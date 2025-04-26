@@ -11,30 +11,50 @@
           <h5 class="card-title-name text-center">
             <%= idea.song.name %>
           </h5>
-          <div class="card-subtitle my-2 text-muted">
-            <h6>created on:</h6>
-            <h6><%= idea.song.created_at.strftime('%A %e %B, %Y') %></h6>
-          </div>
-          <div class="d-flex">
-            <div class="instruments my-2 border">
-              <p>
-                <strong>Starting Instrument: </strong>
-                <% idea.song.instruments.each do |instrument| %>
-                  <ul>
-                    <li><%= instrument.name %></li>
-                  </ul>
-                <% end %>
-              </p>
+          <div class="card-subtitle my-2 text-muted d-flex justify-content-between align-items-center">
+            <div>
+              <h6>created on:</h6>
+              <h6><%= idea.song.created_at.strftime('%A %e %B, %Y') %></h6>
             </div>
-            <div class="song-elements my-2 border">
-              <p class="card-text"><strong>time signature: </strong><%= idea.song.time_signature %></p>
-              <p class="card-text"><strong>mood: </strong><%= idea.song.mood %></p>
-              <p class="card-text"><strong>key: </strong><%= idea.song.key %></p>
-              <p class="card-text"><strong>BPM: </strong><%= idea.song.bpm %></p>
+            <%= link_to user_idea_path(idea), class: "text-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+          <div>
+            <div class="instruments d-flex flex-column align-items-center my-2 border border-2 border-secondary p-2">
+              <p class="text-muted">Starting Instrument</p>
+              <div class="d-flex justify-content-between gap-3">
+                <% idea.song.instruments.each do |instrument| %>
+                  <%= render 'shared/instrument_pic', instrument: instrument %>
+                  <%= instrument.name %>
+                  <%= render 'shared/instrument_pic', instrument: instrument %>
+                <% end %>
+              </div>
+            </div>
+            <div class="song-elements my-2 border border-2 border-secondary p-2">
+              <span class="card-text">
+                <p class="text-muted">Time Signature:</p>
+                <%= idea.song.time_signature %>
+              </span>
+              <span class="card-text">
+                <p class="text-muted">Mood:</p>
+                <%= idea.song.mood %>
+              </span>
+              <span class="card-text">
+                <p class="text-muted">Key:</p>
+                <%= idea.song.key %>
+              </span>
+              <span class="card-text">
+                <p class="text-muted">BPM:</p>
+                <%= idea.song.bpm %>
+              </span>
             </div>
           </div>
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="text-center my-4">
+    <%= link_to 'log out', destroy_user_session_path, data: {turbo_method: :delete}, class: "btn main-btn btn-lg" %>
   </div>
 </div>
