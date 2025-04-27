@@ -1,21 +1,61 @@
-<div class="navbar navbar-banner navbar-light navbar-lewagon fixed-bottom d-flex justify-content-around text-center d-block d-sm-none">
-  <% if user_signed_in? %>
-    <%= link_to root_path do %>
-      <%= image_tag "Home.png", class: "navbar-icon" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-block d-sm-none">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "guitar_3659784.png", alt: "guitar logo" %> Gimme a Song!
     <% end %>
-    <%= link_to new_song_path do %>
-      <%= image_tag "guitar_3659784.png", class: "navbar-icon" %>
-    <% end %>
-    <%= link_to my_songs_path do %>
-      <%= image_tag "User.png", class: "navbar-icon" %>
-    <% end %>
-  <% else %>
-    <div class="col-6">
-      <%= link_to '', new_user_session_path, class: "nav-link fa-solid fa-right-to-bracket fa-2x" %>
-    </div>
 
-    <div class="col-6">
-      <%= link_to '', new_user_registration_path, class: "nav-link fa-solid fa-user-plus fa-2x" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li>
+            <a class="nav-link" href="<%= root_path %>">
+              <%= image_tag "Home.png", alt: "home icon", class: "navbar-icon me-2" %>
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="<%= new_song_path %>">
+              <%= image_tag "clef.png", alt: "musical note icon", class: "navbar-icon-clef me-2" %>
+              New Idea
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="<%= my_songs_path %>">
+              <%= image_tag "User.png", alt: "dashboard icon", class: "navbar-icon me-2" %>
+              My Songs
+            </a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li>
+            <a class="nav-link" href="<%= new_song_path %>">
+              <%= image_tag "clef.png", alt: "musical note icon", class: "navbar-icon-clef me-2" %>
+              New Idea
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="<%= new_user_session_path %>">
+              <%= image_tag "login.png", alt: "login icon", class: "navbar-icon me-2" %>
+              Login
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="<%= new_user_registration_path %>">
+              <%= image_tag "signup.png", alt: "signup icon", class: "navbar-icon me-2" %>
+              Sign up
+            </a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-  <% end %>
+  </div>
 </div>
