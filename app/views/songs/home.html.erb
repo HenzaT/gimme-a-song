@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-around align-items-center">
     <div class="col-12 col-lg-4 d-none d-lg-block">
-      <%= render "home_song_idea_cards" %>
+      <%= render "home_song_idea_cards", random_idea: @random_idea_one %>
     </div>
     <div class="col-12 col-lg-4">
       <div class="container my-2 pt-5 text-center">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="col-12 col-lg-4">
-      <%= render "home_song_idea_cards" %>
+      <%= render "home_song_idea_cards", random_idea: @random_idea_two %>
     </div>
   </div>
 

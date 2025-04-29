@@ -7,7 +7,8 @@ class SongsController < ApplicationController
     song_ideas.map do |s|
       random_ideas << s
     end
-    @random_idea = random_ideas.flatten.uniq.sample
+    @random_idea_one = random_ideas.flatten.sample
+    @random_idea_two = random_ideas.flatten.sample
   end
 
   def new

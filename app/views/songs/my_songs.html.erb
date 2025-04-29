@@ -3,6 +3,11 @@
     <h3><i>Here are your saved songwriting ideas, </i></h3><h1><%= current_user.first_name %></h1>
   </div>
 
+  <%# search & filtering %>
+  <form>
+    <input type="radio" id="">
+    <label for=""></label>
+  </form>
 
   <div class="user-cards d-flex justify-content-center flex-wrap" data-controller="loader" data-loader-target="userCard">
     <% @sorted_ideas.each do |idea| %>
