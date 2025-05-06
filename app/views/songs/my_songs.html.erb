@@ -4,12 +4,12 @@
   </div>
 
   <%# search & filtering %>
-  <form>
+  <%# <form>
     <input type="radio" id="">
     <label for=""></label>
-  </form>
+  </form> %>
 
-  <div class="user-cards d-flex justify-content-center flex-wrap" data-controller="loader" data-loader-target="userCard">
+  <div class="user-cards" data-controller="loader" data-loader-target="userCard">
     <% @sorted_ideas.each do |idea| %>
       <div class="card m-3" style="width: 18rem;">
         <div class="card-body">
@@ -54,6 +54,7 @@
                 <%= idea.song.bpm %>
               </span>
             </div>
+            <%= idea.song.ai_inspiration %>
           </div>
         </div>
       </div>
