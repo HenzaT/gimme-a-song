@@ -14,6 +14,7 @@ class SongsController < ApplicationController
   def new
     @song_instrument = SongInstrument.new
     @song = Song.new
+    @instrument = Instrument.new
   end
 
   def create
@@ -34,6 +35,12 @@ class SongsController < ApplicationController
   def my_songs
     ideas = current_user.UserIdeas
     @sorted_ideas = ideas.order(created_at: :desc)
+    @sorted_ideas.each do |idea|
+      cache_key = "generated_song_#{idea.id}"
+      unless Rails.cache.exist?(cache_key)
+        AiInspirationJob.perform_later(idea.id)
+      end
+    end
   end
 
   private

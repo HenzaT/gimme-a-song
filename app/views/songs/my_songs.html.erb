@@ -25,7 +25,7 @@
               <i class="fa-regular fa-trash-can"></i>
             <% end %>
           </div>
-          <div>
+          <div class="underlay">
             <div class="instruments d-flex flex-column align-items-center my-2 border border-2 border-secondary p-2">
               <p class="text-muted">Starting Instrument</p>
               <div class="d-flex justify-content-between gap-3">
@@ -54,7 +54,19 @@
                 <%= idea.song.bpm %>
               </span>
             </div>
-            <%= idea.song.ai_inspiration %>
+          </div>
+          <%# <div class="overlay">
+            <% if (response = Rails.cache.read("generated_song_#{idea.id}")) %>
+              <%# <pre><%= response</pre> %>
+            <%# else %>
+              <%# <p>No inspiration yet.</p> %>
+            <%# end %>
+          <%# </div> %>
+          <div class="text-center pt-2">
+            <%# <div class="btn btn-done text-dark">
+              <i class="fa-solid fa-robot"></i>
+              be inspired
+            </div> %>
           </div>
         </div>
       </div>

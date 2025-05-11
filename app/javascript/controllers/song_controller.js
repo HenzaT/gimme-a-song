@@ -20,7 +20,8 @@ export default class extends Controller {
     "keyPadlock",
     "instPadlock",
     "allInstrumentOne",
-    "instrumentName"
+    "instrumentName",
+    "instPic"
   ];
 
   connect() {
@@ -64,27 +65,53 @@ export default class extends Controller {
   }
 
   changeAll() {
+    // time signature
     const randomTime = this.getRandomTime();
     this.updateTime(randomTime)
 
+    // key
     const randomKey = this.getRandomKey();
     this.updateKey(randomKey);
 
+    // mood
     const randomMood = this.getRandomMood();
     this.updateMood(randomMood);
 
+    // BPM
     const min = 60;
     const max = 191;
     const randomBpm = this.getRandomBpm(min, max);
     this.updateBpm(randomBpm);
 
+    // instrument
     const instruments = ["guitar", "piano", "bass", "drums", "drum machine", "synth", "vocals"];
     const randomInstrumentOne = instruments[Math.floor(Math.random() * instruments.length)];
 
     this.allInstrumentOneTarget.innerText = randomInstrumentOne;
-
     this.instrumentNameTarget.value = randomInstrumentOne;
 
+    // instrument picture
+    const instrumentText = this.allInstrumentOneTarget.textContent;
+
+    this.instPicTargets.forEach(img => {
+      if (instrumentText.includes('guitar')) {
+        img.src = '../assets/guitar.png';
+      } else if (instrumentText.includes('piano')) {
+        img.src = '../assets/piano.png';
+      } else if (instrumentText.includes('bass')) {
+        img.src = '../assets/bass.png';
+      } else if (instrumentText.includes('drums')) {
+        img.src = '../assets/drum-set.png';
+      } else if (instrumentText.includes('drum machine')) {
+        img.src = '../assets/drum-machine.png';
+      } else if (instrumentText.includes('synth')) {
+        img.src = '../assets/synth.png';
+      } else {
+        img.src = '../assets/vocals.png';
+      };
+    });
+
+    // client side song elements
     this.generatedData = {
       time_signature: randomTime,
       key: randomKey,
@@ -92,6 +119,7 @@ export default class extends Controller {
       bpm: randomBpm
     };
 
+    // client side instrument
     this.selectedInstruments = {
       instrument_name: randomInstrumentOne,
     };

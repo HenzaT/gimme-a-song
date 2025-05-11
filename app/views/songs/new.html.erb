@@ -117,7 +117,11 @@
               <%# <i class="fa-solid fa-lock-open" data-song-target="instPadlock" data-action="click->song#lockInst"></i> %>
             </div>
             <p class="text">Your starting instrument: </p>
-            <h2 data-song-target="allInstrumentOne" data-random-instrument-target="instrument">guitar</h2>
+            <div class="d-flex justify-content-evenly align-items-center gap-3">
+              <img src="../assets/guitar.png" alt="instrument-image" class="instrument-picture" data-song-target="instPic">
+              <h2 data-song-target="allInstrumentOne" data-random-instrument-target="instrument">guitar</h2>
+              <img src="../assets/guitar.png" alt="instrument-image" class="instrument-picture" data-song-target="instPic">
+            </div>
             <%# <button class="btn btn-info" data-action="click->random-instrument#changeInstrument">something else</button> %>
           </div>
         </div>
