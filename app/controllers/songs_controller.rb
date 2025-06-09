@@ -35,13 +35,13 @@ class SongsController < ApplicationController
   def my_songs
     ideas = current_user.UserIdeas
     @sorted_ideas = ideas.order(created_at: :desc)
-    @sorted_ideas.each do |idea|
-      cache_key = "generated_song_#{idea.id}"
-      unless Rails.cache.exist?(cache_key)
-        AiInspirationJob.perform_later(idea.id)
-      end
-    end
   end
+
+  # def generate_inspiration
+  #   idea = current_user.UserIdeas.find(params[:song_id])
+  #   time_signature = params[:time_signature]
+  #   AiInspirationJob.perform_later(idea.id)
+  # end
 
   private
 

@@ -6,9 +6,9 @@ class Song < ApplicationRecord
   validates :time_signature, :name, presence: true
   validates :time_signature, inclusion: { in: %w[4/4 3/4 5/4 6/8 7/8 9/8 6/4] }
 
-  private
+  # after_create_commit -> { broadcast_prepend_to }
 
-  def time_signature_inspiration
-    AiInspirationJob.perform_later(self)
-  end
+  # def time_signature_inspiration
+  #   AiInspirationJob.perform_later(self)
+  # end
 end

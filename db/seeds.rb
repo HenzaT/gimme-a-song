@@ -9,10 +9,14 @@
 #   end
 
 puts "cleaning database..."
+User.destroy_all
 SongInstrument.destroy_all
 UserIdea.destroy_all
 Song.destroy_all
 Instrument.destroy_all
+
+puts "creating user..."
+User.create!(first_name: "tester", email: "tester@testing.com", password: "gimmeatester")
 
 puts "creating songs..."
 happy = Song.create!(mood: "happy", key: "D minor", bpm: 120, time_signature: "4/4", name: "happy song")

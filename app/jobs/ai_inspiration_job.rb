@@ -1,31 +1,40 @@
-class AiInspirationJob < ApplicationJob
-  queue_as :default
+# class AiInspirationJob < ApplicationJob
+#   queue_as :default
 
-  def perform(idea_id)
-    idea = UserIdea.find(idea_id)
-    time_signature = idea.song.time_signature
-    response = ai_inspiration(time_signature)
+#   include ActionView::RecordIdentifier
 
-    Rails.logger.info("🎵 Inspiration: #{response}")
-    Rails.cache.write("generated_song_#{idea.id}", response)
-  end
+#   def perform(idea_id)
+#     idea = UserIdea.find(idea_id)
+#     time_signature = idea.song.time_signature
+#     response = ai_inspiration(time_signature)
 
-  private
+#     Rails.logger.info("🎵 Inspiration: #{response}")
+#     Rails.cache.write("generated_song_#{idea.id}", response)
 
-  def ai_inspiration(time_signature)
-    client = OpenAI::Client.new
-    chatgpt_response = client.chat(parameters: {
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "user",
-          content: "Give me up to 3 songs where most of the song is in this #{time_signature}.
-          If a song is not mostly in this #{time_signature}, do not give it in the response.
-          Get the songs from wikipedia.
-          Solsbury Hill is in 7/8 time signature!
-          Give me the song name and a short description of how it is in that #{time_signature}.
-          Give me the response as a JSON" }
-        ]
-    })
-    return chatgpt_response["choices"][0]["message"]["content"]
-  end
-end
+#     Turbo::StreamsChannel.broadcast_replace_to(
+#       "ai_inspirations",
+#       target: dom_id(idea, :inspiration),
+#       partial: "user_ideas/inspiration",
+#       locals: { idea: idea, inspiration: response }
+#     )
+#   end
+
+#   private
+
+#   def ai_inspiration(time_signature)
+#     client = OpenAI::Client.new
+#     chatgpt_response = client.chat(parameters: {
+#       model: "gpt-4o-mini",
+#       messages: [
+#         { role: "user",
+#           content: "Give me up to 3 songs where most of the song is in this #{time_signature}.
+#           If a song is not mostly in this #{time_signature}, do not give it in the response.
+#           Get the songs from wikipedia.
+#           Solsbury Hill is in 7/8 time signature!
+#           Give me the song name and a short description of how it is in that #{time_signature}.
+#           Give me the response as a JSON" }
+#         ]
+#     })
+#     return chatgpt_response["choices"][0]["message"]["content"]
+#   end
+# end

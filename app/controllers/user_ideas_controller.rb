@@ -4,4 +4,9 @@ class UserIdeasController < ApplicationController
     @user_idea.destroy
     redirect_to my_songs_path, status: :see_other
   end
+
+  def inspire
+    AiInspirationJob.perform_later(params[:id])
+    redirect_to user_idea_path, notice: "Inspiration loading..."
+  end
 end

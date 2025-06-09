@@ -1,4 +1,5 @@
 <div class="container">
+<%= turbo_stream_from "ai_inspirations" %>
   <div class="text-center my-3">
     <h3><i>Here are your saved songwriting ideas, </i></h3><h1><%= current_user.first_name %></h1>
   </div>
@@ -55,19 +56,16 @@
               </span>
             </div>
           </div>
-          <%# <div class="overlay">
-            <% if (response = Rails.cache.read("generated_song_#{idea.id}")) %>
-              <%# <pre><%= response</pre> %>
-            <%# else %>
-              <%# <p>No inspiration yet.</p> %>
-            <%# end %>
+          <%#= button_to "be inspired", inspire_user_idea_path(idea),
+              method: :post,
+              form: { data: { turbo: true } },
+              class: "btn btn-done text-dark"
+          %>
+          <%# <div id="= dom_id(idea, :inspiration)"> %>
+            <%# text here %>
           <%# </div> %>
-          <div class="text-center pt-2">
-            <%# <div class="btn btn-done text-dark">
-              <i class="fa-solid fa-robot"></i>
-              be inspired
-            </div> %>
-          </div>
+          <%#= render partial: "user_ideas/inspiration", locals: { idea: idea, inspiration: "Test broadcast" } %>
+          <%# </div> %>
         </div>
       </div>
     <% end %>
