@@ -16,4 +16,11 @@ My main aim here was to create something that solves a genuine problem (for me).
 - Github
 - PostgreSQL
 
-As I wanted to consolidate certain skills, I decided to use the same tech that I'd used for my previous group projects, so that I could focus more on the specific skills (rather than learning a new technology). As the project evolved I realised I needed to use JavaScript a lot more than I had anticipated, particularly the fetch API. To generate the song elements, the user simply needed to see the different song elements on the client side and so I realised that the database would not need to be updated every time. 
+As I wanted to consolidate certain skills, I decided to use the same tech that I'd used for my previous group projects, so that I could focus more on the specific skills (rather than learning a new technology). As the project evolved I realised I needed to implement JavaScript a lot more than I had anticipated, particularly the fetch API. To generate the song elements, the user simply needed to see the different song elements on the client side; there was no need to update the instruments in the database every time. 
+
+## Login
+You can access the home and new idea page without logging in, as I wanted anyone to be able to use the app for some quick inspiration. To save a song however, you must log in. I utilised Devise for authentication. If you do not want to create a user, please use these login details instead:
+Email:
+- tester@testing.com
+Password:
+- gimmeatester
