@@ -1,4 +1,4 @@
-# class AiInspirationJob < ApplicationJob
+class AiInspirationJob < ApplicationJob
 #   queue_as :default
 
 #   include ActionView::RecordIdentifier
@@ -37,4 +37,4 @@
 #     })
 #     return chatgpt_response["choices"][0]["message"]["content"]
 #   end
-# end
+end
