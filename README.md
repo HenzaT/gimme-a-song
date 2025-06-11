@@ -9,7 +9,7 @@ My main aim here was to create something that solves a genuine problem (for me).
 ## Tech Stack
 - Ruby on Rails
 - HTML5
-- CSS3
+- SCSS
 - JavaScript
 - Bootstrap
 - Git
@@ -28,7 +28,7 @@ You can access the home and new idea page without logging in, as I wanted anyone
 I started with: 
 - a rough sketch of what I wanted the app to look like. This included pictures and a description of what I wanted the user to receive from the app (a randomly generated song idea).
 - the database schema.
-- 
+
 <img src="https://github.com/user-attachments/assets/3e5b18eb-92a5-4d21-949a-3517476792bf" width=40% height=40%>
 
 
