@@ -27,23 +27,25 @@ You can access the home and new idea page without logging in, as I wanted anyone
 ## Process
 I started with: 
 - a rough sketch of what I wanted the app to look like. This included pictures and a description of what I wanted the user to receive from the app (a randomly generated song idea).
-<img src="https://github.com/user-attachments/assets/32400176-ef18-4af9-b213-9285fcebb56c" width=30% height=30%>
-
 - the database schema.
-<img src="https://github.com/user-attachments/assets/3e5b18eb-92a5-4d21-949a-3517476792bf" width=30% height=30%>
-
-
+<img src="https://github.com/user-attachments/assets/3e5b18eb-92a5-4d21-949a-3517476792bf" width=20% height=20%>
 
 
 Following this, I started setting up the Rails project and implementing the backend. TBC
 
-## Wins
-I learnt a lot about the whole process of making a full-stack application, in particular the difference between server-side and client-side. TBC
 
-## Challenges
-Something I found difficult was establishing the relationships between the different tables: Songs and Instruments. I realised early on that they had a many-to-many relationship, which would require a joins table called SongInstruments. After grappling with this for a couple of days, I decided to stop and sketch out the different relationships as you can see in the image below. This helped me to visualise the Active Record query methods and is something I now do before every new project.
+## Reflections
+I learnt a lot about the whole process of making a full-stack application, in particular the difference between server-side and client-side, and how the two communicate with one another. Something I found difficult was working out how to randomly generate the instrument without constantly updating the database, but having the backend recognise the text of the song elements and instrument so that it would be able to save a song idea to the database. This led me down the path of using sessionStorage, as I didn't want or need the randomly generated data elements to be persisted across multiple browser sessions.
+<img src="https://github.com/user-attachments/assets/a9bc6f88-308f-4705-891a-e235353e2a3d" width=50% height=50%>
+- randomTime, randomMood etc are functions found in the stimulus controller to randomly generate that specific element.
+- As Instrument and Song were two separate models, I separated the sessionStorages as well.
+- To know if it was working, I put a simple console.log of the generated data. 
 
-Another challenge was working out how to randomly generate the instrument without constantly updating the database. TBC
+
+
+Another challenge was establishing the relationships between the different tables: Songs and Instruments. I realised early on that they had a many-to-many relationship, which would require a joins table called SongInstruments. After grappling with this for a couple of days, I decided to stop and sketch out the different relationships as you can see in the image below. This helped me to visualise the Active Record query methods and is something I now do before every new project.
+<img src="https://github.com/user-attachments/assets/32400176-ef18-4af9-b213-9285fcebb56c" width=50% height=50%>
+
 
 ## Future Additions
 I'd like to add the ability to have multiple suggested instruments, as well as use the OpenAI api to suggest songs for inspiration.
