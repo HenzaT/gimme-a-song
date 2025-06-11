@@ -27,9 +27,11 @@ You can access the home and new idea page without logging in, as I wanted anyone
 ## Process
 I started with: 
 - a rough sketch of what I wanted the app to look like. This included pictures and a description of what I wanted the user to receive from the app (a randomly generated song idea).
-- the database schema.
+<img src="https://github.com/user-attachments/assets/32400176-ef18-4af9-b213-9285fcebb56c" width=30% height=30%>
 
-<img src="https://github.com/user-attachments/assets/32400176-ef18-4af9-b213-9285fcebb56c" width=50% height=50%>
+- the database schema.
+<img src="https://github.com/user-attachments/assets/3e5b18eb-92a5-4d21-949a-3517476792bf" width=30% height=30%>
+
 
 
 
