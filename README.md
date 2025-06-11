@@ -29,7 +29,8 @@ I started with:
 - a rough sketch of what I wanted the app to look like. This included pictures and a description of what I wanted the user to receive from the app (a randomly generated song idea).
 - the database schema.
 
-![IMG_3022](https://github.com/user-attachments/assets/32400176-ef18-4af9-b213-9285fcebb56c)
+<img src="https://github.com/user-attachments/assets/32400176-ef18-4af9-b213-9285fcebb56c" width=50% height=50%>
+
 
 
 Following this, I started setting up the Rails project and implementing the backend. TBC
