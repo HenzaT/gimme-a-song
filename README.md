@@ -60,4 +60,4 @@ Another challenge was establishing the relationships between the different table
 
 
 ## Future Additions
-I'd like to add the ability to have multiple suggested instruments, as well as use the OpenAI api to suggest songs for inspiration.
+I'd like to add the ability to have multiple suggested instruments, as well as use the OpenAI api to suggest songs for inspiration. I attempted to incorporate the OpenAI API (as seen in my source code), however the songs it would suggest for inspiration were incorrect. For example, when prompting it to suggest songs in 9/8 time signature, it was adamant that 'Solsbury Hill' by Peter Gabriel was in 9/8, despite it being one of the most famous examples of a song in 7/8. Because of this, I decided to not deploy with this error intact, and to dedicate more time to work out why this is happening.
