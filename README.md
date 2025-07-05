@@ -1,5 +1,5 @@
 ## Gimme a Song! - song idea generator
-This is a self-directed project. This is an ongoing project to showcase a song generator for bands and musicians who are stuck with what sort of song to write. My app randomly suggests a time signature, BPM, mood, key and starting instrument to get any musician going! You can also save your generated ideas.
+This is a self-directed project. This is a project to showcase a song generator for bands and musicians who are stuck with what sort of song to write. My app randomly suggests a time signature, BPM, mood, key and starting instrument to get any musician going! You can also save your generated ideas.
 
 ## Goals
 My main aim here was to create something that solves a genuine problem (for me). The idea came when I was practising with my band and we could not think of a way to start a new song. I also wanted to:
