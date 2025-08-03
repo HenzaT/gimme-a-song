@@ -21,8 +21,14 @@ As I wanted to consolidate certain skills, I decided to use the same tech that I
 ## Login
 You can access the home and new idea page without logging in, as I wanted anyone to be able to use the app for some quick inspiration. To save a song however, you must log in. I utilised Devise for authentication. If you do not want to create a user, please use these login details instead:
 
-- Email: tester@testing.com
-- Password: gimmeatester
+username:
+```
+tester@testing.com
+```
+password:
+```
+gimmeatester
+```
 
 ## Process
 I started with: 
