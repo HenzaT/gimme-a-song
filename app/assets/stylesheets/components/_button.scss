@@ -9,6 +9,10 @@
   transition: transform 0.2s ease-in-out;
 }
 
+#home-new-button {
+  font-size: 1rem;
+}
+
 .main-btn:hover, .main-btn:active {
   background-color: #574fcf;
   transform: translateY(-2px);
