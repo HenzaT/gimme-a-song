@@ -1,33 +1,20 @@
 <div class="container">
-  <div class="row justify-content-around align-items-center">
-    <div class="col-12 col-lg-4 d-none d-lg-block">
-      <%= render "songs/home_song_idea_cards", random_idea: @random_idea_one %>
-    </div>
-    <div class="col-12 col-lg-4">
-      <div class="container my-2 pt-5 text-center">
-        <h1>Gimme a Song!</h1>
-        <p>Feeling stuck? Don't know what kind of song to write?</p>
-        <p><i class="fa-solid fa-arrow-down fa-bounce"></i> Be inspired and challenged <i class="fa-solid fa-arrow-down fa-bounce"></i></p>
-
-        <div class="text-center d-grid gap-2">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-12 col-lg-6 d-flex justify-content-center">
+      <div class="my-2 pt-5 home-text mx-auto">
+        <h1 class="main-header mb-5">Gimme a Song</h1>
+        <p>Feeling stuck?</p>
+        <p>Not sure what kind of song to write?</p>
+        <p>Click <strong>New Idea</strong> to generate a new songwriting challenge.</p>
+        <p>Click <strong>Gimme a Song</strong> to randomly change everything.</p>
+        <p>When you are happy with your song idea, click <strong>Done</strong>.</p>
+        <div class="text-center gap-2">
           <%= link_to 'New Idea', new_song_path, class: "btn main-btn btn-lg my-2" %>
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-4">
-      <%= render "songs/home_song_idea_cards", random_idea: @random_idea_two %>
+    <div class="image col-12 col-lg-6">
+      <%= image_tag 'demo.gif', class: "demo-gif mt-5", alt: "demo of website" %>
     </div>
-  </div>
-
-
-  <div class="instructions-body my-3">
-    <h3>How does it work?</h3>
-    <ol>
-      <i>
-        <li><p>Click 'New Idea' to generate a new songwriting challenge</p></li>
-        <li><p>Click 'Gimme a Song' to randomly change everything</p></li>
-        <li><p>When you are happy with your selection, click 'Done'. You can also name it when you save</p></li>
-      </i>
-    </ol>
   </div>
 </div>

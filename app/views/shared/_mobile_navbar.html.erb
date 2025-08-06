@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-block d-sm-none">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "guitar_3659784.png", alt: "guitar logo" %> Gimme a Song!
+      Gimme a Song
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,19 +13,16 @@
         <% if user_signed_in? %>
           <li>
             <a class="nav-link" href="<%= root_path %>">
-              <%= image_tag "Home.png", alt: "home icon", class: "navbar-icon me-2" %>
               Home
             </a>
           </li>
           <li>
             <a class="nav-link" href="<%= new_song_path %>">
-              <%= image_tag "clef.png", alt: "musical note icon", class: "navbar-icon-clef me-2" %>
               New Idea
             </a>
           </li>
           <li>
             <a class="nav-link" href="<%= my_songs_path %>">
-              <%= image_tag "User.png", alt: "dashboard icon", class: "navbar-icon me-2" %>
               My Songs
             </a>
           </li>
@@ -35,19 +32,16 @@
         <% else %>
           <li>
             <a class="nav-link" href="<%= new_song_path %>">
-              <%= image_tag "clef.png", alt: "musical note icon", class: "navbar-icon-clef me-2" %>
               New Idea
             </a>
           </li>
           <li>
             <a class="nav-link" href="<%= new_user_session_path %>">
-              <%= image_tag "login.png", alt: "login icon", class: "navbar-icon me-2" %>
               Login
             </a>
           </li>
           <li>
             <a class="nav-link" href="<%= new_user_registration_path %>">
-              <%= image_tag "signup.png", alt: "signup icon", class: "navbar-icon me-2" %>
               Sign up
             </a>
           </li>

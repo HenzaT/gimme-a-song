@@ -7,14 +7,7 @@
     <%= csp_meta_tag %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-      html * {
-        font-family: "Barlow", sans-serif;
-        font-weight: 400;
-        font-size: 20px;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -26,5 +19,6 @@
       <%= render "shared/flashes" %>
       <%= yield %>
     </div>
+    <%= render "shared/footer" %>
   </body>
 </html>

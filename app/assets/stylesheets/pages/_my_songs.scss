@@ -3,3 +3,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.fa-trash-can {
+  transition: transform 0.2s ease-in-out;
+}
+
+.fa-trash-can:hover {
+  transform: translateY(-2px);
+}

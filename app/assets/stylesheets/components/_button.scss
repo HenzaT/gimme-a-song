@@ -1,29 +1,40 @@
 .btn, .main-btn {
-  border-radius: 20px;
-  border: 1px solid black;
-}
-
-.btn:hover {
-  border: 1px solid black;
+  border-radius: 30px;
 }
 
 .main-btn {
-  background-color: #5a52b6;
+  background-color: #6c63ff;;
   color: white;
+  padding: 10px 20px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .main-btn:hover, .main-btn:active {
-  background-color: #362e90;
+  background-color: #574fcf;
+  transform: translateY(-2px);
   color: white;
-  border: 1px solid black;
 }
 
 .btn-done {
-  background-color: #ec9271;
+  background-color: #f48fb1;
   color: white;
+  transition: transform 0.2s ease-in-out;
 }
 
 .btn-done:hover, .btn-done:active, .btn-done:focus {
-  background-color: #ec9271;
+  background-color: #ec407a;
+  transform: translateY(-2px);
   color: white;
+}
+
+.login, .logout {
+  background-color: transparent;
+  color: black;
+  border: 2px solid #574fcf;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    border: 2px solid #574fcf;
+  }
 }
