@@ -3,6 +3,11 @@
   background: transparent;
 }
 
+body.dark .navbar-lewagon .nav-link,
+body.dark .navbar-lewagon .navbar-brand {
+  color: white !important;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }

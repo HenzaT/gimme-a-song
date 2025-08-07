@@ -2,9 +2,9 @@
 
 <%# Buttons %>
 <div class="container new-body" data-controller="song">
-  <div class="d-flex justify-content-center my-4">
-    <button class="btn main-btn me-4" data-action="click->song#changeAll">Gimme a Song</button>
-    <button type="button" class="btn btn-done me-4" data-bs-toggle="modal" data-bs-target="#saveSongNameModal">
+  <div class="new-buttons d-flex justify-content-center align-items-center my-4 w-100" data-loader-target="button">
+    <button class="btn login me-4" data-action="click->song#changeAll">Gimme a Song</button>
+    <button type="button" class="btn btn-done ms-4" data-bs-toggle="modal" data-bs-target="#saveSongNameModal">
       Done
     </button>
   </div>
@@ -34,7 +34,7 @@
 
   <%# Song %>
   <div class="row">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6" data-loader-target="card">
       <%# Song Row 1 %>
       <div class="row justify-content-evenly">
         <div class="col-9 col-lg-5 card my-4 w-35">
@@ -89,7 +89,7 @@
     </div>
 
     <%# Instruments %>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6" data-loader-target="instCard">
       <%# Instrument Row %>
       <div class="row justify-content-evenly">
         <div class="col-9 col-lg-11 card card-inst my-4 w-45 active">

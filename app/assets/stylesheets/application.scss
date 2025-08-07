@@ -16,11 +16,17 @@ html, body {
   background-color: #f3efef;
 }
 
+// .dark-mode {
+//   background-color: rgb(23, 3, 25);
+//   color: white;
+// }
+
 .main-content {
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 }
 
 body {
+  height: 100vh;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -60,15 +66,6 @@ a {
   color: #574fcf;
 }
 
-// .fade {
-//   animation: fade-in 0.4s ease-in;
-// }
-
-// @keyframes fade-in {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }
+.fade-in {
+  opacity: 1;
+}

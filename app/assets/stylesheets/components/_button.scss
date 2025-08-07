@@ -2,43 +2,65 @@
   border-radius: 30px;
 }
 
+.modal-btn {
+  background: #f3efef;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 .main-btn {
   background-color: #6c63ff;;
   color: white;
   padding: 10px 20px;
   transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #574fcf;
+    transform: translateY(-2px);
+    color: white;
+  }
 }
 
 #home-new-button {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
   font-size: 1rem;
 }
 
-.main-btn:hover, .main-btn:active {
-  background-color: #574fcf;
-  transform: translateY(-2px);
-  color: white;
+#home-new-button.fade-in {
+  opacity: 1;
 }
 
 .btn-done {
-  background-color: #f48fb1;
-  color: white;
+  background-color: #f3efef;
+  border: 2px solid #f48fb1;
+  color: black;
   transition: transform 0.2s ease-in-out;
-}
 
-.btn-done:hover, .btn-done:active, .btn-done:focus {
-  background-color: #ec407a;
-  transform: translateY(-2px);
-  color: white;
+   &:hover {
+    background-color: #f3efef;
+    color: black;
+    transform: translateY(-2px);
+    border: 2px solid #f48fb1;
+  }
 }
 
 .login, .logout {
-  background-color: transparent;
+  background-color: #f3efef;
   color: black;
   border: 2px solid #574fcf;
   transition: transform 0.2s ease-in-out;
 
   &:hover {
+    background-color: #f3efef;
+    color: black;
     transform: translateY(-2px);
     border: 2px solid #574fcf;
   }
+}
+
+.btn-done, .login, .logout {
+  width: 150px;
+  font-size: 1rem;
 }
