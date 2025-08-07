@@ -3,6 +3,7 @@
   opacity: 0;
   font-size: 6rem;
   transition: opacity 0.5s ease-in;
+  z-index: 900;
 }
 
 .main-text {
@@ -12,14 +13,29 @@
   justify-content: center;
   margin-bottom: 20px;
   transition: opacity 0.5s ease-in;
+  width: 70%;
+  margin: auto;
+}
+
+.new-link {
+  color: black;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: #6c63ff;
+  }
 }
 
 .demo-gif {
-  margin-top: 150px;
   width: 550px;
   height: 300px;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px)
+  }
 }
 
 .image {
@@ -33,20 +49,24 @@
   .demo-gif {
     width: 300px;
     height: 200px;
-    margin-top: 40px;
+    margin: 48px 0;
+  }
+
+  .main-text {
+    margin: 0 0 20px 0;
+    width: 100%;
   }
 
   .home-text {padding: 0 12px;}
 
   .main-header {
-    width: 45%;
+    width: 100%;
+    text-align: center;
   }
 }
 
 @media only screen and (max-width: 1160px) {
   .demo-gif {
     width: 100%;
-    height: auto;
-    margin-top: 150px;
   }
 }

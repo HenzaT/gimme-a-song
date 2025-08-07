@@ -3,6 +3,11 @@
   // border: 2px solid;
   border-radius: 15px;
   box-shadow: $box-shadow;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px)
+  }
 
   .card-title-name {
     font-weight: bolder;
@@ -14,12 +19,23 @@
   }
 }
 
+.card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .card-inst {
   border-radius: 15px;
   box-shadow: $box-shadow;
   // .card-body {
   //   padding: 10px;
   // }
+}
+
+#inst-card {
+  height: 100%;
 }
 
 .explain-card {
@@ -56,5 +72,12 @@
 //   transition: opacity 1s;
 //   &.visible {
 //     opacity: 1;
+//   }
+// }
+
+// @media (max-width: 600px) {
+//   #time-sig-text {
+//     text-wrap: nowrap;
+//     text-align: center;
 //   }
 // }

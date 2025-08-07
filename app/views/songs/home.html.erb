@@ -1,22 +1,20 @@
 <div class="container">
-  <div class="row justify-content-center align-items-center">
-    <div class="col-12 col-lg-6 d-flex justify-content-center">
-      <div class="my-2 home-text mx-auto">
-        <h1 class="main-header mb-5" data-loader-target="header">Gimme a Song</h1>
-          <div class="main-text" data-loader-target="text">
-            <p>Feeling stuck?</p>
-            <p>Not sure what kind of song to write?</p>
-            <p>Click <strong>New Idea</strong> to generate a new songwriting challenge.</p>
-            <p>Click <strong>Gimme a Song</strong> to randomly change everything.</p>
-            <p>When you are happy with your song idea, click <strong>Done</strong>.</p>
-          </div>
-        <div class="home-btn text-center gap-2">
-          <%= link_to 'New Idea', new_song_path, class: "btn login btn-lg my-2", id: "home-new-button", data: { loader_target: "button" } %>
-        </div>
-      </div>
-    </div>
-    <div class="image col-12 col-lg-6" data-loader-target="card">
+  <h1 class="main-header my-5" data-loader-target="header">Gimme a Song</h1>
+  <div class="row d-flex justify-content-between align-items-center">
+    <div class="image col-12 col-lg-6 h-100" data-loader-target="card">
       <%= image_tag 'demo.gif', class: "demo-gif", alt: "demo of website" %>
+    </div>
+    <div class="my-2 home-text col-12 col-lg-6 h-100">
+      <div class="main-text" data-loader-target="text">
+        <p>Feeling stuck?</p>
+        <p>Not sure what kind of song to write?</p>
+        <p>Click <strong><%= link_to 'New Idea', new_song_path, class: "new-link" %></strong> to generate a new songwriting challenge.</p>
+        <p>Click <strong>Gimme a Song</strong> to randomly change everything.</p>
+        <p>When you are happy with your song idea, click <strong>Done</strong>.</p>
+      </div>
+      <div class="home-btn text-center gap-2">
+        <%= link_to 'New Idea', new_song_path, class: "btn login btn-lg my-2", id: "home-new-button", data: { loader_target: "button" } %>
+      </div>
     </div>
   </div>
 </div>
